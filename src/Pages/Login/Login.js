@@ -8,7 +8,7 @@ const Login = () => {
     const navigate = useNavigate();
     const {providerLogin, signIn} = useContext(AuthContext);
 
-    const [error, setError] = useState("");
+    const [error, setError] = useState('');
 
     const handleLogin = event =>{
         event.preventDefault();
@@ -16,16 +16,20 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
 
+        setError('')
         signIn(email, password)
         .then(result =>{
             const user = result.user;
-            console.log(user);
             form.reset();
         })
-        .catch(err => setError(err));
+        .catch(err => {
+            setError(error)
+
+        });
     }
 
-    // console.log(error);
+
+
 
 
     const googleProvider = new GoogleAuthProvider()
@@ -59,7 +63,7 @@ const Login = () => {
                                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                             </label>
                         </div>
-                        {/* <p>{error}</p> */}
+                        <p className='text-red-600 text-sm'>{error}</p>
                         <div className="form-control mt-6">
                             <input className='btn btn-primary' type='submit' value="login" />
                         </div>

@@ -5,11 +5,12 @@ import { AuthContext } from '../../Context/AurhProvider/AuthProvider';
 
 const SignUp = () => {
 
-    const {providerLogin, createUser} = useContext(AuthContext);
+    const {providerLogin, createUser, updateUser} = useContext(AuthContext);
 
     const handleSignUp = event =>{
         event.preventDefault();
         const form = event.target;
+        const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
 
@@ -18,6 +19,13 @@ const SignUp = () => {
             const user = result.user;
             console.log(user);
             form.reset();
+            const userInfo = {
+                displayName: name
+            }
+            updateUser(userInfo)
+            .then(()=>{})
+            .catch(err => console.log(err));
+            
         })
         .catch(err => console.log(err));
     }
