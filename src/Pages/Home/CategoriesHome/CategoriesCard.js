@@ -1,7 +1,6 @@
 import React from 'react';
 
 const CategoriesCard = ({ category, handleLoadProduct }) => {
-    console.log( handleLoadProduct);
     const { CategoryName, image } = category;
     return (
         <div>
