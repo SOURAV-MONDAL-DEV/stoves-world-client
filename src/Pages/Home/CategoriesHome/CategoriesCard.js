@@ -1,7 +1,7 @@
 import React from 'react';
 
-const CategoriesCard = ({ category }) => {
-    console.log(category);
+const CategoriesCard = ({ category, handleLoadProduct }) => {
+    console.log( handleLoadProduct);
     const { CategoryName, image } = category;
     return (
         <div>
@@ -12,7 +12,7 @@ const CategoriesCard = ({ category }) => {
                 <div className="card-body items-center text-center">
                     <h2 className="card-title">{CategoryName}</h2>
                     <div className="card-actions">
-                        <button className="btn btn-primary">Buy Now</button>
+                        <button onClick={()=>handleLoadProduct(CategoryName)} className="btn btn-primary">Buy Now</button>
                     </div>
                 </div>
             </div>

@@ -1,9 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import CategoriesCard from './CategoriesCard';
+
+
+
+
+
 const CategoriesHome = () => {
 
     const [Categories, setCategories] = useState([]);
+    
+
+
+
     useEffect(() => {
         fetch('http://localhost:5000/categories')
             .then(res => res.json())
@@ -11,7 +20,9 @@ const CategoriesHome = () => {
     }, [])
 
 
-
+    const handleLoadProduct = (CategoryName) => {
+        console.log(CategoryName);
+    }
 
 
     return (
@@ -26,6 +37,7 @@ const CategoriesHome = () => {
                     Categories.map(category => <CategoriesCard
                         key={category._id}
                         category={category}
+                        handleLoadProduct={handleLoadProduct}
                     ></CategoriesCard>)
                 }
                 
