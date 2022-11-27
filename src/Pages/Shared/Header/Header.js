@@ -8,7 +8,7 @@ const Header = () => {
 
     const menuItems = <>
         <li className='font-semibold text-teal-500'><Link to='/'>Home</Link></li>
-        <li className='font-semibold text-teal-500'><Link to='/services'>Product</Link></li>
+        <li className='font-semibold text-teal-500'><Link to='/products'>Product</Link></li>
         <li className='font-semibold text-teal-500'><Link to='/blog'>Blog</Link></li>
         {
             user?.uid ?

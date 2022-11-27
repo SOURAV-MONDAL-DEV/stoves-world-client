@@ -1,13 +1,14 @@
 import { GoogleAuthProvider } from 'firebase/auth';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link,  useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AurhProvider/AuthProvider';
 
 const Login = () => {
 
-    const navigate = useNavigate()
-
+    const navigate = useNavigate();
     const {providerLogin, signIn} = useContext(AuthContext);
+
+    const [error, setError] = useState("");
 
     const handleLogin = event =>{
         event.preventDefault();
@@ -21,8 +22,10 @@ const Login = () => {
             console.log(user);
             form.reset();
         })
-        .catch(err => console.log(err));
+        .catch(err => setError(err));
     }
+
+    // console.log(error);
 
 
     const googleProvider = new GoogleAuthProvider()
@@ -56,6 +59,7 @@ const Login = () => {
                                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                             </label>
                         </div>
+                        {/* <p>{error}</p> */}
                         <div className="form-control mt-6">
                             <input className='btn btn-primary' type='submit' value="login" />
                         </div>

@@ -5,8 +5,7 @@ import Blog from "../../Pages/Blog/Blog";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
 import MyReview from "../../Pages/MyReview/MyReview";
-// import ServiceDetails from "../../Pages/ServiceDetails/ServiceDetails";
-import ServicesPage from "../../Pages/ServicesPage/ServicesPage";
+import Products from "../../Pages/Products/Products";
 import SignUp from "../../Pages/SignUp/SignUp";
 
 
@@ -24,8 +23,8 @@ const router = createBrowserRouter([
           element: <Login></Login>
         },
         {
-          path: '/services',
-          element:<ServicesPage></ServicesPage>
+          path: '/products',
+          element:<Products></Products>
         },
         {
           path: '/blog',

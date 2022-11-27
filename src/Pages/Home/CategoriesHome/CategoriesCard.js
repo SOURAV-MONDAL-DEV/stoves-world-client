@@ -11,7 +11,7 @@ const CategoriesCard = ({ category, handleLoadProduct }) => {
                 <div className="card-body items-center text-center">
                     <h2 className="card-title">{CategoryName}</h2>
                     <div className="card-actions">
-                        <button onClick={()=>handleLoadProduct(CategoryName)} className="btn btn-primary">Buy Now</button>
+                        <button onClick={()=>handleLoadProduct(CategoryName)} className="btn btn-secondary bg-rose-500 text-white rounded-lg btn-sm">See Products</button>
                     </div>
                 </div>
             </div>

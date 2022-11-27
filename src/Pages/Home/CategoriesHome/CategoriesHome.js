@@ -61,7 +61,7 @@ const CategoriesHome = () => {
                 {
                     categoryProducts ?
                         <>
-                            <div className=' lg:mx-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mx-auto my-10'>
+                            <div className=' lg:mx-20 grid grid-cols-1 md:grid-cols-2 gap-10 mx-auto my-10'>
                                 {
                                     categoryProducts.map(products => <ProductCard
                                         key={products._id}
