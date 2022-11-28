@@ -10,10 +10,7 @@ const AuthProvider = ({children}) => {
 
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [userRole, setUserRole] = useState('');
     const [userInfo, setUserInfo] = useState('');
-
-    console.log('state ok', userInfo);
 
     useEffect(() => {
         fetch(`http://localhost:5000/users/${user?.email}`)
@@ -59,8 +56,7 @@ const AuthProvider = ({children}) => {
         updateUser,
         providerLogin,
         logOut,
-        userRole,
-        setUserRole
+        userInfo,
     }
 
 

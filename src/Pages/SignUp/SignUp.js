@@ -6,7 +6,7 @@ import { AuthContext } from '../../Context/AurhProvider/AuthProvider';
 
 const SignUp = () => {
 
-    const { providerLogin, createUser, updateUser, setUserRole } = useContext(AuthContext);
+    const { providerLogin, createUser, updateUser } = useContext(AuthContext);
     const [signUpError, setSignUpError] = useState('')
 
     const handleSignUp = event => {
@@ -48,12 +48,10 @@ const SignUp = () => {
                     .then(res => res.json())
                     .then(data => {
                         console.log(data)
-                        if (data.acknowledged) {
-                            setUserRole(UserRole)
-                            // alert('Review post successfully')
-                            // form.reset();
-
-                        }
+                        // if (data.acknowledged) {
+                        //     alert('Review post successfully')
+                        //     form.reset();
+                        // }
                     })
                     .catch(er => console.error(er));
 
