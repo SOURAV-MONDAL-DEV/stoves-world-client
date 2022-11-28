@@ -8,6 +8,7 @@ import Login from "../../Pages/Login/Login";
 import MyReview from "../../Pages/MyReview/MyReview";
 import Products from "../../Pages/Products/Products";
 import SignUp from "../../Pages/SignUp/SignUp";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -52,7 +53,7 @@ const router = createBrowserRouter([
     },
     {
       path:'/dashbord',
-      element: <Dashbord></Dashbord>
+      element: <PrivateRoute><Dashbord></Dashbord></PrivateRoute>
     }
   ]);
 

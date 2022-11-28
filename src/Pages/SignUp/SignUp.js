@@ -1,11 +1,13 @@
 import { GoogleAuthProvider } from 'firebase/auth';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AurhProvider/AuthProvider';
 
 const SignUp = () => {
 
     const {providerLogin, createUser, updateUser} = useContext(AuthContext);
+    const [signUpError, setSignUpError] = useState('')
 
     const handleSignUp = event =>{
         event.preventDefault();
@@ -14,10 +16,12 @@ const SignUp = () => {
         const email = form.email.value;
         const password = form.password.value;
 
+        setSignUpError('');
         createUser(email, password)
         .then(result => {
             const user = result.user;
             console.log(user);
+            toast('Sign Up successfully')
             form.reset();
             const userInfo = {
                 displayName: name
@@ -27,8 +31,12 @@ const SignUp = () => {
             .catch(err => console.log(err));
             
         })
-        .catch(err => console.log(err));
+        .catch(error => {
+            setSignUpError(error.message)
+        });
     }
+
+    console.log(signUpError);
 
 
     const googleProvider = new GoogleAuthProvider()
@@ -66,7 +74,7 @@ const SignUp = () => {
                             <span className="label-text">Password</span>
                         </label>
                         <input type="text" name="password" placeholder="password" className="input input-bordered" required />
-                        
+                        {signUpError && <p className='text-red-600'>{signUpError}</p>}
                     </div>
                     <div className="form-control mt-6">
                         <input className='btn btn-primary' type='submit' value="Sign Up" />
