@@ -7,8 +7,19 @@ export const AuthContext = createContext();
     const auth = getAuth(app)
 
 const AuthProvider = ({children}) => {
+
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [userRole, setUserRole] = useState('');
+    const [userInfo, setUserInfo] = useState('');
+
+    console.log('state ok', userInfo);
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/users/${user?.email}`)
+            .then(res => res.json())
+            .then(data => setUserInfo(data[0]))
+    }, [user?.uid])
 
     const providerLogin = (provider) =>{
         return signInWithPopup(auth, provider)
@@ -47,7 +58,9 @@ const AuthProvider = ({children}) => {
         signIn,
         updateUser,
         providerLogin,
-        logOut
+        logOut,
+        userRole,
+        setUserRole
     }
 
 

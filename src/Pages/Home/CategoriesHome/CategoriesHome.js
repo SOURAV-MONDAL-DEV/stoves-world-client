@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ProductCard from '../../../Components/ProductCard/ProductCard';
+import { AuthContext } from '../../../Context/AurhProvider/AuthProvider';
 import CategoriesCard from './CategoriesCard';
 
 
@@ -13,6 +14,8 @@ const CategoriesHome = () => {
     const [selectedCategory, setSelectedCategory] = useState([]);
     const [categoryProducts, setCategoryProducts] = useState([]);
 
+
+    const {userRole} = useContext(AuthContext);
 
 
 
