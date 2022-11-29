@@ -27,7 +27,7 @@ const ProductCard = ({ products }) => {
                         userInfo?.UserRole === "Seller" ?
 
                             <>
-                                <p>Note: It is your seller account. SignUp as a "Buyer" to book this product</p>
+                                <p>Note: It is your seller account. <Link className='text-violet-700' to="/signup">SignUp</Link> as a "Buyer" to book this product</p>
                             </>
 
                             :

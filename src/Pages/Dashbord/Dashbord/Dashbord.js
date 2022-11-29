@@ -1,9 +1,12 @@
 import React from 'react';
+import Header from '../../Shared/Header/Header';
+import DashbordHome from '../DahsbordHome/DashbordHome';
 
 const Dashbord = () => {
     return (
         <div>
-            <p>Dashbord page</p>
+            <Header></Header>
+            <DashbordHome></DashbordHome>
         </div>
     );
 };
