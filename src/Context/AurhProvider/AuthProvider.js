@@ -12,13 +12,48 @@ const AuthProvider = ({children}) => {
     const [loading, setLoading] = useState(true);
     const [userInfo, setUserInfo] = useState('');
 
+
+     const socialLoginUser = {
+        name: user?.displayName,
+        email: user?.email,
+        userRole: "Buyer"
+    }
+
     useEffect(() => {
         fetch(`http://localhost:5000/users/${user?.email}`)
             .then(res => res.json())
             .then(data => setUserInfo(data[0]))
     }, [user?.uid])
 
+    console.log(user);
+
+
+
+
+    // useEffect(() => {
+    //     fetch(`http://localhost:5000//usersput/${user?.email}`, {
+    //                 method: 'POST',
+    //                 headers: {
+    //                     'content-type': 'application/json'
+    //                 },
+    //                 body: JSON.stringify(socialLoginUser)
+    //             })
+    //                 .then(res => res.json())
+    //                 .then(data => {
+    //                     console.log(data)
+                        
+    //                 })
+    //                 .catch(er => console.error(er));
+    // }, [user?.uid])
+
+
+
+    
+
+
+    
     const providerLogin = (provider) =>{
+        setLoading(true)
         return signInWithPopup(auth, provider)
     }
 

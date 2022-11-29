@@ -1,12 +1,12 @@
 import { GoogleAuthProvider } from 'firebase/auth';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AurhProvider/AuthProvider';
 
 const SignUp = () => {
 
-    const { providerLogin, createUser, updateUser } = useContext(AuthContext);
+    const { providerLogin, createUser, updateUser, user } = useContext(AuthContext);
     const [signUpError, setSignUpError] = useState('')
     const navigate = useNavigate();
 
@@ -64,20 +64,68 @@ const SignUp = () => {
             });
     }
 
-    console.log(signUpError);
+    // console.log(signUpError);
 
+    // const socialLoginUser = {
+    //     name: user?.displayName,
+    //     email: user?.email,
+    //     userRole: "Buyer"
+    // }
+
+    
+    // console.log('loginUser',socialLoginUser);
 
     const googleProvider = new GoogleAuthProvider()
     const handleGoogleSignIn = () => {
         providerLogin(googleProvider)
             .then(result => {
-                const user = result.user;
+                // const user = result.user;
+                // console.log('vitor',result);
+
                 console.log(user);
+
+                // fetch(`http://localhost:5000//usersput/${user?.email}`, {
+                //     method: 'POST',
+                //     headers: {
+                //         'content-type': 'application/json'
+                //     },
+                //     body: JSON.stringify(socialLoginUser)
+                // })
+                //     .then(res => res.json())
+                //     .then(data => {
+                //         console.log(data)
+                        
+                //     })
+                //     .catch(er => console.error(er));
+
+
             })
             .catch(err => console.log(err))
     }
 
+    // console.log('test',user,socialLoginUser);
 
+
+    // useEffect(()=>{
+
+    //     fetch(`http://localhost:5000//usersput/${user?.email}`, {
+    //                 method: 'POST',
+    //                 headers: {
+    //                     'content-type': 'application/json'
+    //                 },
+    //                 body: JSON.stringify(socialLoginUser)
+    //             })
+    //                 .then(res => res.json())
+    //                 .then(data => {
+    //                     console.log(data)
+                        
+    //                 })
+    //                 .catch(er => console.error(er));
+
+    // },[user?.uid])
+
+
+    
 
     return (
         <div className="hero ">
