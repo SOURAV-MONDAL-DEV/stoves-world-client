@@ -6,8 +6,8 @@ import SellerDashbord from '../SellerDashbord/SellerDashbord';
 
 
 const DashbordHome = () => {
-    const {userInfo} = useContext(AuthContext);
-    const role = userInfo?.UserRole;
+    const {userInfo } = useContext(AuthContext);
+    const role = userInfo?.userRole;
 
     if(role === "Buyer"){
         return(

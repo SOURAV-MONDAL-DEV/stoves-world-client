@@ -1,12 +1,11 @@
-import { GoogleAuthProvider } from 'firebase/auth';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AurhProvider/AuthProvider';
 
 const SignUp = () => {
 
-    const { providerLogin, createUser, updateUser, user } = useContext(AuthContext);
+    const { createUser, updateUser } = useContext(AuthContext);
     const [signUpError, setSignUpError] = useState('')
     const navigate = useNavigate();
 
@@ -16,12 +15,12 @@ const SignUp = () => {
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
-        const UserRole = form.role.value;
+        const userRole = form.role.value;
 
         const signUser = {
             name,
             email,
-            UserRole,
+            userRole,
         }
 
         setSignUpError('');
@@ -49,10 +48,7 @@ const SignUp = () => {
                     .then(res => res.json())
                     .then(data => {
                         console.log(data)
-                        // if (data.acknowledged) {
-                        //     alert('Review post successfully')
-                        //     form.reset();
-                        // }
+                        
                     })
                     .catch(er => console.error(er));
 
@@ -64,19 +60,6 @@ const SignUp = () => {
             });
     }
 
-
-    const googleProvider = new GoogleAuthProvider()
-    const handleGoogleSignIn = () => {
-        providerLogin(googleProvider)
-            .then(result => {
-                // const user = result.user;
-                // console.log(user);
-
-                console.log(user);
-
-            })
-            .catch(err => console.log(err))
-    }
 
 
     
@@ -119,7 +102,7 @@ const SignUp = () => {
                             <input className='btn btn-primary' type='submit' value="Sign Up" />
                         </div>
                     </form>
-                    <button onClick={handleGoogleSignIn} className='btn bg-base-300 text-black mx-8'>Sign In with Google</button>
+                    {/* <button onClick={handleGoogleSignIn} className='btn bg-base-300 text-black mx-8'>Sign In with Google</button> */}
                     <p className='text-center my-5 font-semibold'>Already have an account? <Link className='text-violet-700 font-bold' to="/login"> Log in</Link> </p>
                 </div>
             </div>

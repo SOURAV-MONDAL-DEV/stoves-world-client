@@ -1,11 +1,11 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
-import { Link,  useLocation,  useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AurhProvider/AuthProvider';
 
 const Login = () => {
 
-    const {providerLogin, signIn} = useContext(AuthContext);
+    const { providerLogin, signIn } = useContext(AuthContext);
     const location = useLocation()
     const navigate = useNavigate();
 
@@ -13,7 +13,7 @@ const Login = () => {
 
     const [error, setError] = useState('');
 
-    const handleLogin = event =>{
+    const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
@@ -21,15 +21,15 @@ const Login = () => {
 
         setError('')
         signIn(email, password)
-        .then(result =>{
-            const user = result.user;
-            form.reset();
-            navigate(from, {replace: true})  
-        })
-        .catch(err => {
-            setError(error)
+            .then(result => {
+                const user = result.user;
+                form.reset();
+                navigate(from, { replace: true })
+            })
+            .catch(err => {
+                setError(error)
 
-        });
+            });
     }
 
 
@@ -37,13 +37,32 @@ const Login = () => {
 
 
     const googleProvider = new GoogleAuthProvider()
-    const handleGoogleSignIn = () =>{
+    const handleGoogleSignIn = () => {
         providerLogin(googleProvider)
-        .then(result => {
-            // const user =result.user;
-            navigate('/')
-        })
-        .catch(err => console.log(err))
+            .then(result => {
+
+                const socialLoginUser = {
+                    name: result?.user?.displayName,
+                    email: result?.user?.email,
+                    userRole: "Buyer"
+                }
+
+                fetch(`http://localhost:5000/users/${result?.user?.email}`, {
+                            method: 'PUT',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(socialLoginUser)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                console.log(data, "S usr update")
+                                navigate('/')
+                                
+                            })
+                            .catch(er => console.error(er));
+            })
+            .catch(err => console.log(err))
     }
 
     return (
@@ -73,7 +92,7 @@ const Login = () => {
                         </div>
                     </form>
                     <button onClick={handleGoogleSignIn} className='btn bg-base-300 text-black mx-8'>Sign In with Google</button>
-                    <p className='text-center my-5 font-semibold'>Don't have an account? <Link className='text-violet-700 font-bold' to ="/signup"> Sign Up</Link> </p>
+                    <p className='text-center my-5 font-semibold'>Don't have an account? <Link className='text-violet-700 font-bold' to="/signup"> Sign Up</Link> </p>
                 </div>
             </div>
         </div>
