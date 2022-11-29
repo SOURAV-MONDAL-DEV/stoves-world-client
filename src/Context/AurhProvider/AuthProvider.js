@@ -30,25 +30,23 @@ const AuthProvider = ({children}) => {
 
 
 
-    // useEffect(() => {
-    //     fetch(`http://localhost:5000//usersput/${user?.email}`, {
-    //                 method: 'POST',
-    //                 headers: {
-    //                     'content-type': 'application/json'
-    //                 },
-    //                 body: JSON.stringify(socialLoginUser)
-    //             })
-    //                 .then(res => res.json())
-    //                 .then(data => {
-    //                     console.log(data)
+    useEffect(() => {
+        fetch(`http://localhost:5000/users/${user?.email}`, {
+                    method: 'PUT',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(socialLoginUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
                         
-    //                 })
-    //                 .catch(er => console.error(er));
-    // }, [user?.uid])
+                    })
+                    .catch(er => console.error(er));
+    }, [user?.email])
 
 
-
-    
 
 
     

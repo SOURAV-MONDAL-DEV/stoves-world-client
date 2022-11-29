@@ -64,65 +64,19 @@ const SignUp = () => {
             });
     }
 
-    // console.log(signUpError);
-
-    // const socialLoginUser = {
-    //     name: user?.displayName,
-    //     email: user?.email,
-    //     userRole: "Buyer"
-    // }
-
-    
-    // console.log('loginUser',socialLoginUser);
 
     const googleProvider = new GoogleAuthProvider()
     const handleGoogleSignIn = () => {
         providerLogin(googleProvider)
             .then(result => {
                 // const user = result.user;
-                // console.log('vitor',result);
+                // console.log(user);
 
                 console.log(user);
-
-                // fetch(`http://localhost:5000//usersput/${user?.email}`, {
-                //     method: 'POST',
-                //     headers: {
-                //         'content-type': 'application/json'
-                //     },
-                //     body: JSON.stringify(socialLoginUser)
-                // })
-                //     .then(res => res.json())
-                //     .then(data => {
-                //         console.log(data)
-                        
-                //     })
-                //     .catch(er => console.error(er));
-
 
             })
             .catch(err => console.log(err))
     }
-
-    // console.log('test',user,socialLoginUser);
-
-
-    // useEffect(()=>{
-
-    //     fetch(`http://localhost:5000//usersput/${user?.email}`, {
-    //                 method: 'POST',
-    //                 headers: {
-    //                     'content-type': 'application/json'
-    //                 },
-    //                 body: JSON.stringify(socialLoginUser)
-    //             })
-    //                 .then(res => res.json())
-    //                 .then(data => {
-    //                     console.log(data)
-                        
-    //                 })
-    //                 .catch(er => console.error(er));
-
-    // },[user?.uid])
 
 
     
