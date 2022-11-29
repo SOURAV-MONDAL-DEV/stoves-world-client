@@ -15,9 +15,6 @@ const CategoriesHome = () => {
     const [categoryProducts, setCategoryProducts] = useState([]);
 
 
-    const {userRole} = useContext(AuthContext);
-
-
 
     useEffect(() => {
         fetch('http://localhost:5000/categories')

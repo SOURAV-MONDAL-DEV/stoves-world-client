@@ -1,13 +1,14 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AurhProvider/AuthProvider';
 
 const SignUp = () => {
 
     const { providerLogin, createUser, updateUser } = useContext(AuthContext);
     const [signUpError, setSignUpError] = useState('')
+    const navigate = useNavigate();
 
     const handleSignUp = event => {
         event.preventDefault();
@@ -54,6 +55,8 @@ const SignUp = () => {
                         // }
                     })
                     .catch(er => console.error(er));
+
+                navigate('/')
 
             })
             .catch(error => {
