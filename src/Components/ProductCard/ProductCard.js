@@ -5,8 +5,36 @@ import { AuthContext } from '../../Context/AurhProvider/AuthProvider';
 const ProductCard = ({ products }) => {
     const {user, userInfo } = useContext(AuthContext);
 
+    const { productName, _id, isVarified, picture, resalePrice, originalPrice, sellerName, usedYear, location, postingDate } = products;
 
-    const { productName, isVarified, picture, resalePrice, originalPrice, sellerName, usedYear, location, postingDate } = products;
+
+    const handleBookNow = () => {
+
+        const order = {
+            buyerEmail: userInfo.email,
+            productId: _id
+        }
+
+
+        fetch('http://localhost:5000/orders', {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(order)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    alert('order pleced successfully')
+                    // navigate('/dashbord/myProducts')
+
+                }
+            })
+            .catch(er => console.error(er));
+    }
+
+
     return (
         <div className="card w-96 bg-base-100 shadow-xl mx-auto">
             <figure><img src={picture} alt="Stove" /></figure>
@@ -32,7 +60,7 @@ const ProductCard = ({ products }) => {
                             :
 
                             <div className="card-actions justify-end">
-                                <button className="btn btn-primary rounded-lg bg-orange-500">Book Now</button>
+                                <button onClick={handleBookNow} className="btn btn-primary rounded-lg bg-orange-500">Book Now</button>
                             </div>
                 }
             </div>
