@@ -7,13 +7,13 @@ const Header = () => {
     const {user, logOut, userInfo} = useContext(AuthContext);
 
     const menuItems = <>
-        <li className='font-semibold text-teal-500'><Link to='/'>Home</Link></li>
-        <li className='font-semibold text-teal-500'><Link to='/products'>Product</Link></li>
-        <li className='font-semibold text-teal-500'><Link to='/blog'>Blog</Link></li>
+        <li className='font-semibold  rounded-lg hover:bg-yellow-200 hover:rounded-lg text-teal-500'><Link className='hover:rounded-lg' to='/'>Home</Link></li>
+        <li className='font-semibold  rounded-lg hover:bg-yellow-200 hover:rounded-lg text-teal-500'><Link className='hover:rounded-lg' to='/products'>Product</Link></li>
+        <li className='font-semibold  rounded-lg hover:bg-yellow-200 hover:rounded-lg text-teal-500'><Link className='hover:rounded-lg' to='/blog'>Blog</Link></li>
         {
             user?.uid ?
             <>
-                <li className='font-semibold'><Link to='/dashbord'>DashBord</Link></li>
+                <li className='font-semibold  rounded-lg hover:bg-yellow-200 hover:rounded-lg text-teal-500'><Link className='hover:rounded-lg' to='/dashbord'>DashBord</Link></li>
             </>
             :
             <></>
