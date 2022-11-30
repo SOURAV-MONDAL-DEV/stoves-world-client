@@ -24,10 +24,10 @@ const ProductCard = ({ products }) => {
                     !user?.uid ?
                         <p><Link className='text-violet-700' to="/login">Login </Link> or <Link className='text-violet-700' to="/signup">SignUp</Link> as a "Buyer" to book this product</p>
                     :
-                        userInfo?.UserRole === "Seller" ?
+                        userInfo?.userRole !== "Buyer" ?
 
                             <>
-                                <p>Note: It is your seller account. <Link className='text-violet-700' to="/signup">SignUp</Link> as a "Buyer" to book this product</p>
+                                <p>Note: It's not your Buyer account. <Link className='text-violet-700' to="/signup">SignUp</Link> as a "Buyer" to book this product</p>
                             </>
 
                             :
