@@ -1,9 +1,111 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../../../Context/AurhProvider/AuthProvider';
 
 const AddProduct = () => {
+
+    const { user, userInfo } = useContext(AuthContext);
+
+    const handlePlaceProduct = event => {
+        event.preventDefault();
+        const form = event.target;
+        const productName = form.productName.value;
+        const photoUrl = form.photoUrl.value;
+        const originalPrice = form.originalPrice.value;
+        const resalePrice = form.resalePrice.value;
+        const usedYear = form.usedYear.value;
+        const condition = form.condition.value;
+        const category = form.category.value;
+        const sellerName = form.sellerName.value;
+        const phone = form.phone.value;
+        const email = form.sellerEmail.value;
+        const location = form.location.value;
+        const postingDate = form.postingDate.value;
+        const description = form.description.value;
+
+
+        const product = {
+            productName,
+            photoUrl,
+            originalPrice,
+            resalePrice,
+            usedYear,
+            condition,
+            category,
+            phone,
+            location,
+            postingDate,
+            sellerName,
+            email,
+            description,
+            isVarified: true
+        }
+
+        console.log(product);
+
+
+        fetch('http://localhost:5000/product', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(product)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.acknowledged) {
+                    alert('product add successfully')
+                    form.reset();
+                }
+            })
+            .catch(er => console.error(er));
+
+    }
+
     return (
         <div>
             <p>now you can add a product</p>
+            <div>
+                {
+                    user?.uid ?
+                        <>
+                            <form onSubmit={handlePlaceProduct}>
+                                <h2 className="text-2xl">Add a Product</h2>
+                                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-5'>
+                                    <input name="productName" type="text" placeholder="Write Product Name" className="input input-ghost w-full  input-bordered" required />
+                                    <input name="photoUrl" type="text" placeholder="Input product PhotoUrl" className="input input-ghost w-full  input-bordered" required />
+                                    <input name="originalPrice" type="text" placeholder="originalPrice" className="input input-ghost w-full  input-bordered" required />
+                                    <input name="resalePrice" type="text" placeholder="resalePrice" className="input input-ghost w-full  input-bordered" required />
+                                    <input name="usedYear" type="text" placeholder="used year" className="input input-ghost w-full  input-bordered" required />
+                                    <select name='condition' className="select select-bordered w-full max-w-xs">
+                                        <option disabled>condition</option>
+                                        <option>Excellent</option>
+                                        <option>Good</option>
+                                        <option>Fair</option>
+                                    </select>
+                                    <select name='category' className="select select-bordered w-full max-w-xs">
+                                        <option disabled > category </option>
+                                        <option>Gas Stoves</option>
+                                        <option>Electric Stoves</option>
+                                        <option>Induction Stoves</option>
+                                    </select>
+                                    <input name="sellerName" defaultValue={userInfo?.name} type="text" placeholder="Write Your Name" className="input input-ghost w-full  input-bordered" readOnly required />
+                                    <input name="sellerEmail" defaultValue={userInfo?.email} type="text" placeholder="Write Your Name" className="input input-ghost w-full  input-bordered" readOnly required />
+                                    <input name="phone" type="text" placeholder="phone" className="input input-ghost w-full  input-bordered" required />
+                                    <input name="location" type="text" placeholder="Product location" className="input input-ghost w-full  input-bordered" required />
+                                    <input name="postingDate" type="text" placeholder="Posting Date" className="input input-ghost w-full  input-bordered" required />
+                                </div>
+                                <textarea name="description" className="textarea textarea-bordered h-24 w-full" placeholder="Product description" required></textarea>
+
+                                <input className='btn ' type="submit" value="Add Product" />
+                            </form>
+                        </>
+                        :
+                        <>
+                            <p className='text-center text-dark-500 font-bold text-2xl m-8'>Please Login first for add sevice</p>
+                        </>
+                }
+            </div>
         </div>
     );
 };
