@@ -86,7 +86,7 @@ const SignUp = () => {
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="text" name="password" placeholder="password" className="input input-bordered" required />
+                            <input type="password" name="password" placeholder="password" className="input input-bordered" required />
                             {signUpError && <p className='text-red-600'>{signUpError}</p>}
                         </div>
                         <div className="form-control">

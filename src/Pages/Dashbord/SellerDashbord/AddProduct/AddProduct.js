@@ -1,9 +1,13 @@
 import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../../Context/AurhProvider/AuthProvider';
 
 const AddProduct = () => {
 
     const { user, userInfo } = useContext(AuthContext);
+    const role = userInfo?.userRole;
+
+    const navigate = useNavigate();
 
     const handlePlaceProduct = event => {
         event.preventDefault();
@@ -56,61 +60,64 @@ const AddProduct = () => {
                 if (data.acknowledged) {
                     alert('product add successfully')
                     form.reset();
+                    navigate('/dashbord/myProducts')
+
                 }
             })
             .catch(er => console.error(er));
 
     }
-
-    return (
-        <div>
+    if (role === "Seller") {
+        return (
             <div>
-                {
-                    user?.uid ?
-                        <>
-                            <form onSubmit={handlePlaceProduct}>
-                                <h2 className="text-2xl">Add a Product</h2>
-                                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-5'>
-                                    <input name="productName" type="text" placeholder="Write Product Name" className="input input-ghost w-full  input-bordered" required />
-                                    <input name="photoUrl" type="text" placeholder="Input product PhotoUrl" className="input input-ghost w-full  input-bordered" required />
-                                    <input name="originalPrice" type="text" placeholder="originalPrice" className="input input-ghost w-full  input-bordered" required />
-                                    <input name="resalePrice" type="text" placeholder="resalePrice" className="input input-ghost w-full  input-bordered" required />
-                                    <input name="usedYear" type="text" placeholder="used year" className="input input-ghost w-full  input-bordered" required />
-                                    <div className='flex items-center border'>
-                                        <p className='px-6'>category :</p>
-                                    <select name='category' className="select max-w-xs">
-                                        <option>Gas Stoves</option>
-                                        <option>Electric Stoves</option>
-                                        <option>Induction Stoves</option>
-                                    </select>
+                <div>
+                    {
+                        user?.uid ?
+                            <>
+                                <form onSubmit={handlePlaceProduct}>
+                                    <h2 className="text-2xl">Add a Product</h2>
+                                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-5'>
+                                        <input name="productName" type="text" placeholder="Write Product Name" className="input input-ghost w-full  input-bordered" required />
+                                        <input name="photoUrl" type="text" placeholder="Input product PhotoUrl" className="input input-ghost w-full  input-bordered" required />
+                                        <input name="originalPrice" type="text" placeholder="originalPrice" className="input input-ghost w-full  input-bordered" required />
+                                        <input name="resalePrice" type="text" placeholder="resalePrice" className="input input-ghost w-full  input-bordered" required />
+                                        <input name="usedYear" type="text" placeholder="used year" className="input input-ghost w-full  input-bordered" required />
+                                        <div className='flex items-center border'>
+                                            <p className='px-6'>category :</p>
+                                            <select name='category' className="select max-w-xs">
+                                                <option>Gas Stoves</option>
+                                                <option>Electric Stoves</option>
+                                                <option>Induction Stoves</option>
+                                            </select>
+                                        </div>
+                                        <div className='flex items-center border'>
+                                            <p className='px-6'>condition :</p>
+                                            <select name='condition' className="select max-w-xs">
+                                                <option>Excellent</option>
+                                                <option>Good</option>
+                                                <option>Fair</option>
+                                            </select>
+                                        </div>
+                                        <input name="sellerName" defaultValue={userInfo?.name} type="text" placeholder="Write Your Name" className="input input-ghost w-full  input-bordered" readOnly required />
+                                        <input name="sellerEmail" defaultValue={userInfo?.email} type="text" placeholder="Write Your Name" className="input input-ghost w-full  input-bordered" readOnly required />
+                                        <input name="phone" type="text" placeholder="phone" className="input input-ghost w-full  input-bordered" required />
+                                        <input name="location" type="text" placeholder="Product location" className="input input-ghost w-full  input-bordered" required />
+                                        <input name="postingDate" type="text" placeholder="Posting Date" className="input input-ghost w-full  input-bordered" required />
                                     </div>
-                                    <div className='flex items-center border'>
-                                        <p className='px-6'>condition :</p>
-                                    <select name='condition' className="select max-w-xs">
-                                        <option>Excellent</option>
-                                        <option>Good</option>
-                                        <option>Fair</option>
-                                    </select>
-                                    </div>
-                                    <input name="sellerName" defaultValue={userInfo?.name} type="text" placeholder="Write Your Name" className="input input-ghost w-full  input-bordered" readOnly required />
-                                    <input name="sellerEmail" defaultValue={userInfo?.email} type="text" placeholder="Write Your Name" className="input input-ghost w-full  input-bordered" readOnly required />
-                                    <input name="phone" type="text" placeholder="phone" className="input input-ghost w-full  input-bordered" required />
-                                    <input name="location" type="text" placeholder="Product location" className="input input-ghost w-full  input-bordered" required />
-                                    <input name="postingDate" type="text" placeholder="Posting Date" className="input input-ghost w-full  input-bordered" required />
-                                </div>
-                                <textarea name="description" className="textarea textarea-bordered h-24 w-full" placeholder="Product description" required></textarea>
+                                    <textarea name="description" className="textarea textarea-bordered h-24 w-full" placeholder="Product description" required></textarea>
 
-                                <input className='btn ' type="submit" value="Add Product" />
-                            </form>
-                        </>
-                        :
-                        <>
-                            <p className='text-center text-dark-500 font-bold text-2xl m-8'>Please Login first for add sevice</p>
-                        </>
-                }
+                                    <input className='btn ' type="submit" value="Add Product" />
+                                </form>
+                            </>
+                            :
+                            <>
+                                <p className='text-center text-dark-500 font-bold text-2xl m-8'>Please Login first for add sevice</p>
+                            </>
+                    }
+                </div>
             </div>
-        </div>
-    );
+        );
+    }
 };
 
 export default AddProduct;
