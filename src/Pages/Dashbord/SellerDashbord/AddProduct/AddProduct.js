@@ -77,18 +77,22 @@ const AddProduct = () => {
                                     <input name="originalPrice" type="text" placeholder="originalPrice" className="input input-ghost w-full  input-bordered" required />
                                     <input name="resalePrice" type="text" placeholder="resalePrice" className="input input-ghost w-full  input-bordered" required />
                                     <input name="usedYear" type="text" placeholder="used year" className="input input-ghost w-full  input-bordered" required />
-                                    <select name='condition' className="select select-bordered w-full max-w-xs">
-                                        <option disabled>condition</option>
-                                        <option>Excellent</option>
-                                        <option>Good</option>
-                                        <option>Fair</option>
-                                    </select>
-                                    <select name='category' className="select select-bordered w-full max-w-xs">
-                                        <option disabled > category </option>
+                                    <div className='flex items-center border'>
+                                        <p className='px-6'>category :</p>
+                                    <select name='category' className="select max-w-xs">
                                         <option>Gas Stoves</option>
                                         <option>Electric Stoves</option>
                                         <option>Induction Stoves</option>
                                     </select>
+                                    </div>
+                                    <div className='flex items-center border'>
+                                        <p className='px-6'>condition :</p>
+                                    <select name='condition' className="select max-w-xs">
+                                        <option>Excellent</option>
+                                        <option>Good</option>
+                                        <option>Fair</option>
+                                    </select>
+                                    </div>
                                     <input name="sellerName" defaultValue={userInfo?.name} type="text" placeholder="Write Your Name" className="input input-ghost w-full  input-bordered" readOnly required />
                                     <input name="sellerEmail" defaultValue={userInfo?.email} type="text" placeholder="Write Your Name" className="input input-ghost w-full  input-bordered" readOnly required />
                                     <input name="phone" type="text" placeholder="phone" className="input input-ghost w-full  input-bordered" required />

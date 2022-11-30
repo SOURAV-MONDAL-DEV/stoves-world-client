@@ -1,6 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main";
-import AddService from "../../Pages/AddService/AddService";
 import Blog from "../../Pages/Blog/Blog";
 import AllBuyers from "../../Pages/Dashbord/AdminDashbord/AllBuyers/AllBuyers";
 import AllSellers from "../../Pages/Dashbord/AdminDashbord/AllSellers/AllSellers";
@@ -10,7 +9,6 @@ import AddProduct from "../../Pages/Dashbord/SellerDashbord/AddProduct/AddProduc
 import MyProducts from "../../Pages/Dashbord/SellerDashbord/MyProducts/MyProducts";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
-import MyReview from "../../Pages/MyReview/MyReview";
 import Products from "../../Pages/Products/Products";
 import SignUp from "../../Pages/SignUp/SignUp";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
@@ -36,14 +34,6 @@ const router = createBrowserRouter([
         {
           path: '/blog',
           element:<Blog></Blog>
-        },
-        {
-          path: '/addservice',
-          element:<AddService></AddService>
-        },
-        {
-          path: '/myreviews',
-          element:<MyReview></MyReview>
         },
         {
           path: '/signup',
