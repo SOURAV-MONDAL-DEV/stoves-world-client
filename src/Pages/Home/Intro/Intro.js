@@ -6,7 +6,7 @@ const Intro = () => {
             <div className='m-10 md:m-2 lg:m-10 '>
                 <p>left</p>
             </div>
-            <div className='mx-auto'>
+            <div className='m-10 md:m-2 lg:m-10 '>
                 <p>right</p>
             </div>
         </div>

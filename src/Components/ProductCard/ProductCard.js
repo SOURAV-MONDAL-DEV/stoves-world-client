@@ -1,18 +1,24 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AurhProvider/AuthProvider';
 
 const ProductCard = ({ products }) => {
     const {user, userInfo } = useContext(AuthContext);
-
-    const { productName, _id, isVarified, picture, resalePrice, originalPrice, sellerName, usedYear, location, postingDate } = products;
-
+    const { productName, _id, isVarified, picture, email, resalePrice, originalPrice, sellerName, usedYear, location, postingDate } = products;
+    const navigate = useNavigate();
 
     const handleBookNow = () => {
 
         const order = {
             buyerEmail: userInfo.email,
-            productId: _id
+            productId: _id,
+            productName,
+            picture,
+            resalePrice,
+            sellerName,
+            location,
+            sellerEmail: email
+
         }
 
 
@@ -25,10 +31,13 @@ const ProductCard = ({ products }) => {
         })
             .then(res => res.json())
             .then(data => {
-                if (data.acknowledged) {
-                    alert('order pleced successfully')
+                if (data.acknowledged && data.modifiedCount === 1) {
+                    alert('order placed successfully')
+                    navigate('/dashbord/myProducts')
+                }
+                if (data.acknowledged && data.modifiedCount === 0 ) {
+                    alert('you have already placed this order')
                     // navigate('/dashbord/myProducts')
-
                 }
             })
             .catch(er => console.error(er));
