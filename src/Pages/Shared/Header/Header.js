@@ -6,20 +6,46 @@ const Header = () => {
 
     const {user, logOut, userInfo} = useContext(AuthContext);
 
+
     const menuItems = <>
         <li className='font-semibold  rounded-lg hover:bg-yellow-200 hover:rounded-lg text-teal-500'><Link className='hover:rounded-lg' to='/'>Home</Link></li>
         <li className='font-semibold  rounded-lg hover:bg-yellow-200 hover:rounded-lg text-teal-500'><Link className='hover:rounded-lg' to='/products'>Product</Link></li>
         <li className='font-semibold  rounded-lg hover:bg-yellow-200 hover:rounded-lg text-teal-500'><Link className='hover:rounded-lg' to='/blog'>Blog</Link></li>
         {
-            user?.uid ?
+            userInfo?.userRole === "Admin" ?
             <>
-                <li className='font-semibold  rounded-lg hover:bg-yellow-200 hover:rounded-lg text-teal-500'><Link className='hover:rounded-lg' to='/dashbord'>DashBord</Link></li>
+                <li className='font-semibold  rounded-lg hover:bg-yellow-200 hover:rounded-lg text-teal-500'><Link className='hover:rounded-lg' to='/dashbord/allSellers'>DashBord</Link></li>
+            </>
+            :
+            <></>
+        }
+        {
+            userInfo?.userRole === "Seller" ?
+            <>
+                <li className='font-semibold  rounded-lg hover:bg-yellow-200 hover:rounded-lg text-teal-500'><Link className='hover:rounded-lg' to='/dashbord/addProduct'>DashBord</Link></li>
+            </>
+            :
+            <></>
+        }
+        {
+            userInfo?.userRole === "Buyer" ?
+            <>
+                <li className='font-semibold  rounded-lg hover:bg-yellow-200 hover:rounded-lg text-teal-500'><Link className='hover:rounded-lg' to='/dashbord/myOrders'>DashBord</Link></li>
             </>
             :
             <></>
         }
 
     </>
+
+
+            // user?.uid ?
+            // <>
+            //     <li className='font-semibold  rounded-lg hover:bg-yellow-200 hover:rounded-lg text-teal-500'><Link className='hover:rounded-lg' to='/dashbord'>DashBord</Link></li>
+            // </>
+            // :
+            // <></>
+
 
 
 

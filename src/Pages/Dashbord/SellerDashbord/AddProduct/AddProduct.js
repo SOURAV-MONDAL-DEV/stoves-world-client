@@ -44,7 +44,6 @@ const AddProduct = () => {
             isVarified: true
         }
 
-        console.log(product);
 
 
         fetch('http://localhost:5000/product', {

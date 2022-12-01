@@ -39,11 +39,7 @@ const router = createBrowserRouter([
           path: '/signup',
           element: <SignUp></SignUp>
         }
-        // {
-        //   path: 'services/:id',
-        //   element: <ServiceDetails></ServiceDetails>,
-        //   loader: ({params})=>fetch(`https://paint-service-server.vercel.app/services/${params.id}`)
-        // }
+        
       ]
     },
     {
