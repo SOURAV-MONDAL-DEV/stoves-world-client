@@ -6,8 +6,6 @@ const MyOrders = () => {
     const role = userInfo?.userRole;
     const [orderList, setOrderList] = useState([])
 
-    console.log(orderList, "state order");
-
     useEffect(() => {
         fetch(`http://localhost:5000/orders/${user?.email}`)
             .then(res => res.json())
@@ -29,10 +27,11 @@ const MyOrders = () => {
                                 <figure><img src={product.photoUrl} alt="Stove" /></figure>
                                 <div className="card-body">
                                     <h2 className="card-title text-2xl">{product.productName}</h2>
-                                    <p className='font-semibold'>Seller : <span className=''>{product.sellerName}</span></p>
-                                    <p className='font-semibold'>original Price : <span className=''>{product.originalPrice}</span></p>
+                                    <p className='font-semibold'>Product Condition: <span className=''>{product.condition}</span></p>
                                     <p className='font-semibold'>Resale Price : <span className=''>{product.resalePrice}</span></p>
-                                    <p className='font-semibold'>Uses Time : <span className=''>{product.usedYear} </span> years</p>
+                                    <p className='font-semibold'>Seller : <span className=''>{product.sellerName}</span></p>
+                                    <p className='font-semibold'>Seller Phone : <span className=''>{product.sellerPhone}</span></p>
+                                    <p className='font-semibold'>Seller email : <span className=''>{product.sellerEmail}</span></p>
                                     <p className='font-semibold'>Location : <span className=''>{product.location}</span></p>
                                 </div>
                             </div>

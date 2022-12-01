@@ -4,7 +4,7 @@ import { AuthContext } from '../../Context/AurhProvider/AuthProvider';
 
 const ProductCard = ({ products }) => {
     const {user, userInfo } = useContext(AuthContext);
-    const { productName, _id, isVarified, picture, email, resalePrice, originalPrice, sellerName, usedYear, location, postingDate } = products;
+    const { productName, _id, isVarified, picture, email, phone, resalePrice, originalPrice, condition, sellerName, usedYear, location, postingDate } = products;
     const navigate = useNavigate();
 
     const handleBookNow = () => {
@@ -15,12 +15,14 @@ const ProductCard = ({ products }) => {
             productName,
             picture,
             resalePrice,
+            originalPrice,
             sellerName,
             location,
-            sellerEmail: email
+            sellerEmail: email,
+            sellerPhone: phone,
+            condition: condition
 
         }
-
 
         fetch('http://localhost:5000/orders', {
             method: 'PUT',
@@ -49,10 +51,13 @@ const ProductCard = ({ products }) => {
             <figure><img src={picture} alt="Stove" /></figure>
             <div className="card-body">
             <h2 className="card-title text-2xl">{productName}</h2>
-                                <p className='font-semibold'>Seller : <span className=''>{sellerName}</span></p>
                                 <p className='font-semibold'>original Price : <span className=''>{originalPrice}</span></p>
                                 <p className='font-semibold'>Resale Price : <span className=''>{resalePrice}</span></p>
                                 <p className='font-semibold'>Uses Time : <span className=''>{usedYear} </span> years</p>
+                                <p className='font-semibold'>Product condition : <span className=''>{condition} </span></p>
+                                <p className='font-semibold'>Seller : <span className=''>{sellerName}</span></p>
+                                <p className='font-semibold'>Seller phone : <span className=''>{phone}</span></p>
+                                <p className='font-semibold'>Seller email : <span className=''>{email}</span></p>
                                 <p className='font-semibold'>Location : <span className=''>{location}</span></p>
                                 <p className='font-semibold'>Posted on : <span className=''>{postingDate}</span></p>
                 {   
