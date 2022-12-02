@@ -10,16 +10,24 @@ const AuthProvider = ({children}) => {
 
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [userInfo, setUserInfo] = useState('');
+    const [userInfo, setUserInfo] = useState({});
     const [doFetch, setDoFetch] = useState(false);
+
+
+    console.log(user?.uid);
+    console.log(userInfo, "auth");
 
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/users/${user?.email}`)
+        fetch(`https://stoves-world-server.vercel.app/users/${user?.email}`)
             .then(res => res.json())
             .then(data => {
-                setUserInfo(data[0])
+                console.log(data);
+                if(data[0]){
+                    setUserInfo(data[0])
+                }
+                
             })
     }, [user?.uid])
 

@@ -36,7 +36,7 @@ const BookingModal = ({ bookProduct }) => {
         const status = { isSold: true };
 
 
-        fetch('http://localhost:5000/orders', {
+        fetch('https://stoves-world-server.vercel.app/orders', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -49,7 +49,7 @@ const BookingModal = ({ bookProduct }) => {
                     toast('order placed successfully')
                     navigate('/dashbord/myOrders')
 
-                    fetch(`http://localhost:5000/productSold/${_id}`, {
+                    fetch(`https://stoves-world-server.vercel.app/productSold/${_id}`, {
                         method: 'PUT',
                         headers: {
                             'content-type': 'application/json'

@@ -5,6 +5,7 @@ import { AuthContext } from '../../../Context/AurhProvider/AuthProvider';
 const Header = () => {
 
     const {user, logOut, userInfo} = useContext(AuthContext);
+    console.log(userInfo);
 
 
     const menuItems = <>

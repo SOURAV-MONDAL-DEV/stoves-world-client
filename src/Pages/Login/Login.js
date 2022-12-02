@@ -48,7 +48,7 @@ const Login = () => {
                     isVerified: false
                 }
 
-                fetch(`http://localhost:5000/users/${result?.user?.email}`, {
+                fetch(`https://stoves-world-server.vercel.app/users/${result?.user?.email}`, {
                             method: 'PUT',
                             headers: {
                                 'content-type': 'application/json'

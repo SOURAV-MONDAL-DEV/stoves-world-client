@@ -18,7 +18,7 @@ const CategoriesHome = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/categories')
+        fetch('https://stoves-world-server.vercel.app/categories')
             .then(res => res.json())
             .then(data => setCategories(data))
     }, [])
@@ -30,7 +30,7 @@ const CategoriesHome = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/category/${selectedCategory}`)
+        fetch(`https://stoves-world-server.vercel.app/category/${selectedCategory}`)
             .then(res => res.json())
             .then(data => setCategoryProducts(data))
     }, [selectedCategory])

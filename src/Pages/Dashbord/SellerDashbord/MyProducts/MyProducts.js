@@ -11,7 +11,7 @@ const MyProducts = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/products/${userInfo?.email}`)
+        fetch(`https://stoves-world-server.vercel.app/products/${userInfo?.email}`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data, "aiche");
@@ -27,7 +27,7 @@ const MyProducts = () => {
             };
 
 
-        fetch(`http://localhost:5000/productAdvertise/${id}`, {
+        fetch(`https://stoves-world-server.vercel.app/productAdvertise/${id}`, {
                         method: 'PUT',
                         headers: {
                             'content-type': 'application/json'

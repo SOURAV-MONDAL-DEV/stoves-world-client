@@ -13,7 +13,7 @@ const AllSellers = () => {
     console.log(doFetch, "seller");
 
     useEffect(() => {
-        fetch('http://localhost:5000/usersRole/Seller')
+        fetch('https://stoves-world-server.vercel.app/usersRole/Seller')
             .then(res => res.json())
             .then(data => {
                 setSellers(data)
@@ -22,7 +22,7 @@ const AllSellers = () => {
     }, [doFetch])
 
     const handleDeleteUser = user => {
-        fetch(`http://localhost:5000/users/${user.email}`,{
+        fetch(`https://stoves-world-server.vercel.app/users/${user.email}`,{
             method: "DELETE"
         })
         .then(res => res.json())

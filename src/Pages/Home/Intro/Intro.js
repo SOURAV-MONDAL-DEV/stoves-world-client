@@ -8,7 +8,7 @@ const Intro = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/productsAdvertise/true')
+        fetch('https://stoves-world-server.vercel.app/productsAdvertise/true')
             .then(res => res.json())
             .then(data => {
                 setProducts(data)

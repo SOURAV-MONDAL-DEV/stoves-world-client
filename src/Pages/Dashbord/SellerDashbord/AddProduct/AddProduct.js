@@ -51,7 +51,7 @@ const AddProduct = () => {
 
 
 
-        fetch('http://localhost:5000/product', {
+        fetch('https://stoves-world-server.vercel.app/product', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
