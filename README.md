@@ -68,3 +68,31 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+### Live site link :
+   https://stove-world-sm.web.app/
+
+### About the Project:
+
+
+1. name:  Stove world client
+2. Libraries and framework: 
+   1. React,
+   2. Tailwind css,
+   3. Daisy ui,
+3. For Server Hoisting : 
+   1. Vercel
+4. For Authentication:
+   1. Firebase
+5. For deploy:
+   1. Firebase
+6. Database:
+   1.Mongodb
+
+### Functionality: 
+  this site is created and building for buying and selling uses stoves. there are three categories of a stops in the site gas stoves electric strokes and induction stoves. there are three types of logging system.
+  1. login as a seller 
+  2. login as a buyer 
+  3. login as admin.
