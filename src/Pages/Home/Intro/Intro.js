@@ -1,16 +1,39 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import ProductCard from '../../../Components/ProductCard/ProductCard';
+
+
+
 
 const Intro = () => {
-    return (
-        <div className='grid md:grid-cols-2 m-5 md:m-20 bg-slate-400'>
-            <div className='m-10 md:m-2 lg:m-10 '>
-                <p>left</p>
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/productsAdvertise/true')
+            .then(res => res.json())
+            .then(data => {
+                setProducts(data)
+            })
+            .catch(err => console.log(err))
+    }, [])
+
+
+    if (products?.length) {
+        return (
+            <div >
+                <h2 className='text-center text-xl font-bold'>Advertisement :</h2>
+                <div className=' lg:mx-20 grid grid-cols-1 md:grid-cols-2 gap-10 mx-auto my-10' >
+                    {
+                        products.map(product => <ProductCard
+                            key={product._id}
+                            products={product}
+
+                        ></ProductCard>)
+                    }
+                </div>
+
             </div>
-            <div className='m-10 md:m-2 lg:m-10 '>
-                <p>right</p>
-            </div>
-        </div>
-    );
+        );
+    }
 };
 
 export default Intro;
