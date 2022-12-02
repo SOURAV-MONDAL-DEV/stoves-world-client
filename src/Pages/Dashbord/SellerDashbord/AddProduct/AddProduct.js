@@ -41,7 +41,8 @@ const AddProduct = () => {
             sellerName,
             email,
             description,
-            isVarified: true
+            isSold: false,
+            isAdvertised: false,
         }
 
 

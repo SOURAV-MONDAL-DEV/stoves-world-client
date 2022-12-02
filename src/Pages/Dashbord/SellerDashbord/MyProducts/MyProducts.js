@@ -36,6 +36,10 @@ const MyProducts = () => {
                                     <p className='font-semibold'>Location : <span className=''>{product.location}</span></p>
                                     <p className='font-semibold'>Posted on : <span className=''>{product.postingDate}</span></p>
                                 </div>
+                                <div className="card-actions justify-center">
+
+                                <button  className='btn btn-sm btn-primary m-3 text-white rounded-lg bg-orange-500 '>Advertise product</button>
+                                </div>
                             </div>
 
                         )
