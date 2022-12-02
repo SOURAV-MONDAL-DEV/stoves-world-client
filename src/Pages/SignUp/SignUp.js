@@ -21,6 +21,7 @@ const SignUp = () => {
             name,
             email,
             userRole,
+            isVerified: false
         }
 
         setSignUpError('');

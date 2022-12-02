@@ -3,18 +3,23 @@ import toast from 'react-hot-toast';
 import { AuthContext } from '../../../../Context/AurhProvider/AuthProvider';
 
 const AllSellers = () => {
-    const { userInfo } = useContext(AuthContext);
+    const { userInfo, } = useContext(AuthContext);
     const [sellers, setSellers] = useState();
     const [deletingUser, setDeletingUser] = useState(null);
     const role = userInfo?.userRole;
 
-    // console.log(sellers);
+    const [ doFetch, setDoFetch] = useState();
+
+    console.log(doFetch, "seller");
 
     useEffect(() => {
         fetch('http://localhost:5000/usersRole/Seller')
             .then(res => res.json())
-            .then(data => setSellers(data))
-    }, [])
+            .then(data => {
+                setSellers(data)
+                setDoFetch(false)
+            })
+    }, [doFetch])
 
     const handleDeleteUser = user => {
         fetch(`http://localhost:5000/users/${user.email}`,{
@@ -22,7 +27,10 @@ const AllSellers = () => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data);
+            if(data.acknowledged){
+                setDoFetch(true)
+                console.log(data);
+            }
             toast("Delete user successfully")
         })
 

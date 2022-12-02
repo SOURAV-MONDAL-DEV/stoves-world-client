@@ -5,10 +5,10 @@ import { AuthContext } from '../../Context/AurhProvider/AuthProvider';
 
 const BookingModal = ({ bookProduct }) => {
     const { productName, _id, isVarified, picture, email, phone, resalePrice, originalPrice, condition, sellerName, usedYear, location, postingDate } = bookProduct;
-    const { userInfo, isLoading } = useContext(AuthContext);
+    const { userInfo, isLoading, doFetch, setDoFetch } = useContext(AuthContext);
     const navigate = useNavigate();
 
-    // console.log(userInfo, "modal user  info");
+    console.log(doFetch, "modal user  info");
 
 
     const handleBookNow = event => {
@@ -58,7 +58,9 @@ const BookingModal = ({ bookProduct }) => {
                     })
                         .then(res => res.json())
                         .then(data => { 
-                            console.log(data);
+                            if(data.acknowledged){
+                                console.log(data);
+                            }
                         })
                         .catch(er => console.error(er));
 

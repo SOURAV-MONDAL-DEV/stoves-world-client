@@ -7,6 +7,8 @@ const AllBuyers = () => {
     const { userInfo } = useContext(AuthContext);
     const [buyers, setBuyers] = useState();
     const [deletingUser, setDeletingUser] = useState(null);
+    const [ doFetch, setDoFetch] = useState();
+
     const navigate = useNavigate();
     const role = userInfo?.userRole;
 
@@ -15,8 +17,11 @@ const AllBuyers = () => {
     useEffect(() => {
         fetch('http://localhost:5000/usersRole/Buyer')
             .then(res => res.json())
-            .then(data => setBuyers(data))
-    }, [])
+            .then(data =>{
+                setBuyers(data)
+                setDoFetch(false)
+            })
+    }, [doFetch])
 
     const handleDeleteUser = user => {
         fetch(`http://localhost:5000/users/${user.email}`,{
@@ -24,7 +29,10 @@ const AllBuyers = () => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data);
+            if(data.acknowledged){
+                setDoFetch(true)
+                console.log(data);
+            }
             toast("Delete user successfully")
             navigate('/dashbord/allBuyers')
 

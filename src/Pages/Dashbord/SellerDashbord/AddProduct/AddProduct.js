@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../../Context/AurhProvider/AuthProvider';
 
@@ -8,6 +9,9 @@ const AddProduct = () => {
     const role = userInfo?.userRole;
 
     const navigate = useNavigate();
+
+    const current = new Date();
+    const date = `${current.getDate()}-${current.getMonth() + 1}-${current.getFullYear()}`;
 
     const handlePlaceProduct = event => {
         event.preventDefault();
@@ -23,7 +27,7 @@ const AddProduct = () => {
         const phone = form.phone.value;
         const email = form.sellerEmail.value;
         const location = form.location.value;
-        const postingDate = form.postingDate.value;
+        const postingDate = date;
         const description = form.description.value;
 
 
@@ -56,9 +60,8 @@ const AddProduct = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 if (data.acknowledged) {
-                    alert('product add successfully')
+                    toast('product add successfully')
                     form.reset();
                     navigate('/dashbord/myProducts')
 
@@ -101,9 +104,7 @@ const AddProduct = () => {
                                         <input name="sellerName" defaultValue={userInfo?.name} type="text" placeholder="Write Your Name" className="input input-ghost w-full  input-bordered" readOnly required />
                                         <input name="sellerEmail" defaultValue={userInfo?.email} type="text" placeholder="Write Your Name" className="input input-ghost w-full  input-bordered" readOnly required />
                                         <input name="phone" type="text" placeholder="phone" className="input input-ghost w-full  input-bordered" required />
-                                        <input name="location" type="text" placeholder="Product location" className="input input-ghost w-full  input-bordered" required />
-                                        <input name="postingDate" type="text" placeholder="Posting Date" className="input input-ghost w-full  input-bordered" required />
-                                    </div>
+                                        <input name="location" type="text" placeholder="Product location" className="input input-ghost w-full  input-bordered" required />                                    </div>
                                     <textarea name="description" className="textarea textarea-bordered h-24 w-full" placeholder="Product description" required></textarea>
 
                                     <input className='btn ' type="submit" value="Add Product" />

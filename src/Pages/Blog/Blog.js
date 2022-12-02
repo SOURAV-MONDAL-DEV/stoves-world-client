@@ -6,76 +6,129 @@ const Blog = () => {
             <div className='lg:mx-2 grid grid-cols-1 md:grid-cols-2 gap-2 mx-auto my-10'>
                 <div className="card card-compact w-96 md:w-full bg-base-100 shadow-xl mx-auto">
                     <div className="card-body">
-                        <h2 className="card-title text-green-600 font-bold">Difference between SQL and NoSQL</h2>
-                        <p maxlength="50">The Main Differences:<br />
+                        <h2 className="card-title text-green-600 font-bold">How does prototypical inheritance work?</h2>
+                        <p maxlength="50">Every object with its methods and properties contains an internal and hidden property known as [[Prototype]]. The Prototypal Inheritance is a feature in javascript used to add methods and properties in objects. It is a method by which an object can inherit the properties and methods of another object. Traditionally, in order to get and set the [[Prototype]] of an object, we use Object.getPrototypeOf and Object.setPrototypeOf. Nowadays, in modern language, it is being set using __proto__.
 
-                            Type –<br />
-                            SQL databases are primarily called as Relational Databases (RDBMS); whereas NoSQL database are primarily called as non-relational or distributed database.<br />
+                            Syntax:
 
+                            ChildObject.__proto__ = ParentObject
+                            Example In the given example, there are two objects ‘person’ and ‘GFGuser’. The object ‘GFGuser’ inherits the methods and properties of the object ‘person’ and further uses them.
+                            In a class-based model, you have Classes, which are represented by the triple  Where:
 
-                            Language –<br />
-                            SQL databases defines and manipulates data based structured query language (SQL). Seeing from a side this language is extremely powerful. SQL is one of the most versatile and widely-used options available which makes it a safe choice especially for great complex queries. But from other side it can be restrictive. SQL requires you to use predefined schemas to determine the structure of your data before you work with it. Also all of your data must follow the same structure. This can require significant up-front preparation which means that a change in the structure would be both difficult and disruptive to your whole system.
-                            A NoSQL database has dynamic schema for unstructured data. Data is stored in many ways which means it can be document-oriented, column-oriented, graph-based or organized as a KeyValue store. This flexibility means that documents can be created without having defined structure first. Also each document can have its own unique structure. The syntax varies from database to database, and you can add fields as you go.<br />
+                            Parents is the list of classes you’re extending. Classes may only extend other classes;
+                            Variables is the number of variable slots that instances will have. For example, a “class Point2d(int x, int y) ” has 2 instance variables;
+                            Methods is a table of “name → function” that describes which services each instance of the class will support;
+                            Instances (or Objects) in a class-based model are represented with the tuple “. Where:
 
+                            Class is a pointer to the class triple that defines how many variables this instance supports, and what methods you can call on it;
+                            Values is a list of the values for each variable the instance has.
+                            In this model, Classes only describe how instances look like, and Instances are the only thing you can interact with. Classes cannot be instances, and you can’t inherit from Instances.
 
+                            “Inheritance” just means “a concatenation of the layouts” Then the complete set of ClassB methods is . It’s the union of all methods from the parents (generally with things to the right being chosen when there’s a conflict).
 
-                            Scalability –<br />
-                            In almost all situations SQL databases are vertically scalable. This means that you can increase the load on a single server by increasing things like RAM, CPU or SSD. But on the other hand NoSQL databases are horizontally scalable. This means that you handle more traffic by sharding, or adding more servers in your NoSQL database. It is similar to adding more floors to the same building versus adding more buildings to the neighborhood. Thus NoSQL can ultimately become larger and more powerful, making these databases the preferred choice for large or ever-changing data sets.<br />
+                            There are some languages that support the notion of Classes which can also be instances, like Ruby and Python. Python actually uses the model I’m going to describe later. Ruby uses evil black magic and you’ll wish you had never looked if you try prying under the hood[1] .
 
+                            (And this is why I hate classes)
 
-                            Structure –<br />
-                            SQL databases are table-based on the other hand NoSQL databases are either key-value pairs, document-based, graph databases or wide-column stores. This makes relational SQL databases a better option for applications that require multi-row transactions such as an accounting system or for legacy systems that were built for a relational structure. </p>
+                            Now, someone realised at some point that you do not need classes.
+
+                            Let’s look at what we’re trying to get with classes so far:
+
+                            A way of declaring what objects look like (that is, what methods and variables it supports);
+                            A way of extending this “looks like” relationship, so you don’t need to keep repeating yourself everywhere;
+                            A way of having objects (that is, values you can interact through the methods it supports);</p>
                     </div>
                 </div>
                 <div className="card card-compact w-96 md:w-full bg-base-100 shadow-xl mx-auto">
                     <div className="card-body">
-                        <h2 className="card-title text-green-600 font-bold">What is JWT, and how does it work?</h2>
-                        <p maxlength="50"><bold>JWT</bold>, or JSON Web Token, is an open standard used to share security information between two parties — a client and a server. Each JWT contains encoded JSON objects, including a set of claims. JWTs are signed using a cryptographic algorithm to ensure that the claims cannot be altered after the token is issued.<br />
-                            JWT differ from other web tokens in that they contain a set of claims. Claims are used to transmit information between two parties. What these claims are depends on the use case at hand. For example, a claim may assert who issued the token, how long it is valid for, or what permissions the client has been granted.
+                        <h2 className="card-title text-green-600 font-bold">What are the different ways to manage a state in a React application?</h2>
+                        <p maxlength="50">Not only are there are a lot of different kinds of state, but there often dozens of ways of managing each kind. Which should you choose?
 
-                            A JWT is a string made up of three parts, separated by dots (.), and serialized using base64. In the most common serialization format, compact serialization, the JWT looks something like this: xxxxx.yyyyy.zzzzz.
+                            In this guide, we will uncover the several kinds of state in your React apps that you might not be aware of, plus how to manage them in the most effective way.
 
-                            Once decoded, you will get two JSON strings:
+                            Want the #1 resource to learn React? You can become a React pro if you study 30 minutes a day with the React Bootcamp.
+                            The Four Kinds of React State to Manage
+                            When we talk about state in our applications, it’s important to be clear about what types of state actually matter.
 
-                            The header and the payload.
-                            The signature.
-                            The JOSE (JSON Object Signing and Encryption) header contains the type of token — JWT in this case — and the signing algorithm.
+                            There are four main types of state you need to properly manage in your React apps:
 
-                            The payload contains the claims. This is displayed as a JSON string, usually containing no more than a dozen fields to keep the JWT compact. This information is typically used by the server to verify that the user has permission to perform the action they are requesting.
+                            Local state
+                            Global state
+                            Server state
+                            URL state
+                            Let's cover each of these in detail:
 
-                            There are no mandatory claims for a JWT, but overlaying standards may make claims mandatory. For example, when using JWT as bearer access token under OAuth2.0, iss, sub, aud, and exp must be present. some are more common than others.
+                            Local (UI) state – Local state is data we manage in one or another component.
 
-                            The signature ensures that the token hasn’t been altered. The party that creates the JWT signs the header and payload with a secret that is known to both the issuer and receiver, or with a private key known only to the sender. When the token is used, the receiving party verifies that the header and payload match the signature. A common way to use JWTs is as OAuth bearer tokens. In this example, an authorization server creates a JWT at the request of a client and signs it so that it cannot be altered by any other party. The client will then send this JWT with its request to a REST API. The REST API will verify that the JWT’s signature matches its payload and header to determine that the JWT is valid. When the REST API has verified the JWT, it can use the claims to either grant or deny the client’s request.
+                            Local state is most often managed in React using the useState hook.
 
-                            In simpler terms, you can think of a JWT bearer token as an identity badge to get into a secured building. The badge comes with special permissions (the claims); that is, it may grant access to only select areas of the building. The authorization server in this analogy is the reception desk — or the issuer of the badge. And to verify that the badge is valid, the company logo is printed on it, similar to the signature of the JWT. If the badge holder attempts to access a restricted area, the permissions on the badge determine whether or not they can access the area, similar to the claims in a JWT.</p>
+                            For example, local state would be needed to show or hide a modal component or to track values for a form component, such as form submission, when the form is disabled and the values of a form’s inputs.
+
+                            Global (UI) state – Global state is data we manage across multiple components.
+
+                            Global state is necessary when we want to get and update data anywhere in our app, or in multiple components at least.
+
+                            A common example of global state is authenticated user state. If a user is logged into our app, it is necessary to get and change their data throughout our application.
+
+                            Sometimes state we think should be local might become global.
+
+                            Server state – Data that comes from an external server that must be integrated with our UI state.
+
+                            Server state is a simple concept, but can be hard to manage alongside all of our local and global UI state.
+
+                            There are several pieces of state that must be managed every time you fetch or update data from an external server, including loading and error state.
+
+                            Fortunately there are tools such as SWR and React Query that make managing server state much easier.</p>
                     </div>
                 </div>
                 <div className="card card-compact w-96 md:w-full bg-base-100 shadow-xl mx-auto">
                     <div className="card-body">
-                        <h2 className="card-title text-green-600 font-bold">What is the difference between javascript and NodeJS?</h2>
-                        <p maxlength="50">JavaScript is a programming language, which runs in web browsers. Whereas Node.js is an interpreter or running environment for JavaScript, which holds a lot of requiring libraries and all. JavaScript is basically one standard defining programming language; it can run any browser with a default browser running environment. It is a very strong language normally used for a web application on any verification or any specific business logic. We need to append in the screen without page refreshing. JavaScript also helps to use Ajax at any time, which helps us call any server-side script for given dynamic data based on the requirement. It also helps with generating dynamic HTML tables based on business requirement. JQuery is one of the popular libraries to make comfortable use of JavaScript by avoiding to write a lot of code.<br />
-                            Node.js also holds a lot of relative libraries, which we normally use in javascript for general purpose programming language. It is actually a kind of environment or interpreter that can represent JavaScript or run any javascript program. It mainly helps us execute some non-blocking operation like some operating system special information like certificate details or hardware details; we may use node js on the same, which help us do it, and JavaScript normal programming will not help us on the same. Normally all browsers have a JavaScript engine that helps us to run javascript in a web browser. Spider monkey (FireFox), JavaScript Core (Safari), V8 (Google Chrome) are some popular javascript engine using verities browsers. But node js is using the V8 engine directly, with some libraries to do some I/O or networking operations. It actually helps us use JavaScript from outside of the browser, like creating, writing or executing one shell script, some back-end services, or running on hardware. Let us understand  JavaScript vs Node JS in detail.
+                        <h2 className="card-title text-green-600 font-bold">What is a unit test? Why should we write unit tests?</h2>
+                        <p maxlength="50">Unit testing is a software development process in which the smallest testable parts of an application, called units, are individually and independently scrutinized for proper operation. This testing methodology is done during the development process by the software developers and sometimes QA staff.  The main objective of unit testing is to isolate written code to test and determine if it works as intended.
+
+                            Unit testing is an important step in the development process, because if done correctly, it can help detect early flaws in code which may be more difficult to find in later testing stages.
+
+                            Unit testing is a component of test-driven development (TDD), a pragmatic methodology that takes a meticulous approach to building a product by means of continual testing and revision. This testing method is also the first level of software testing, which is performed before other testing methods such as integration testing. Unit tests are typically isolated to ensure a unit does not rely on any external code or functions. Testing can be done manually but is often automated.
+
+                            How unit tests work
+                            A unit test typically comprises of three stages: plan, cases and scripting and the unit test itself. In the first step, the unit test is prepared and reviewed. The next step is for the test cases and scripts to be made, then the code is tested.
+
+                            Test-driven development requires that developers first write failing unit tests. Then they write code and refactor the application until the test passes. TDD typically results in an explicit and predictable code base.
+
                         </p>
                     </div>
                 </div>
                 <div className="card card-compact w-96 md:w-full bg-base-100 shadow-xl mx-auto">
                     <div className="card-body">
-                        <h2 className="card-title text-green-600 font-bold">How does NodeJS handle multiple requests at the same time?</h2>
-                        <p maxlength="50">Given a NodeJS application, since Node is single threaded, say if processing involves a Promise.all that takes 8 seconds, does this mean that the client request that comes after this request would need to wait for eight seconds?
-                            No. NodeJS event loop is single threaded. The entire server architecture for NodeJS is not single threaded.
+                        <h2 className="card-title text-green-600 font-bold">React vs. Angular vs. Vue?</h2>
+                        <p maxlength="50">This post is a comprehensive guide on which is perhaps the right solution for you: Angular vs React vs Vue.
 
-                            Before getting into the Node server architecture, to take a look at typical multithreaded request response model, the web server would have multiple threads and when concurrent requests get to the webserver, the webserver picks threadOne from the threadPool and threadOne processes requestOne and responds to clientOne and when the second request comes in, the web server picks up the second thread from the threadPool and picks up requestTwo and processes it and responds to clientTwo. threadOne is responsible for all kinds of operations that requestOne demanded including doing any blocking IO operations.
+                            Just a couple of years ago, developers were mainly debating whether they should be using Angular vs React for their projects. But over the course of the last couple of years, we’ve seen a growth of interest in a third player called Vue.js.
 
-                            The fact that the thread needs to wait for blocking IO operations is what makes it inefficient. With this kind of a model, the webserver is only able to serve as much requests as there are threads in the thread pool.
+                            If you are a developer starting out on a project and cannot decide on which JavaScript framework to use, this guide should help you make a decision.
 
-                            NodeJS Web Server maintains a limited Thread Pool to provide services to client requests. Multiple clients make multiple requests to the NodeJS server. NodeJS receives these requests and places them into the EventQueue .
-                            NodeJS server has an internal component referred to as the EventLoop which is an infinite loop that receives requests and processes them. This EventLoop is single threaded. In other words, EventLoop is the listener for the EventQueue.
-                            So, we have an event queue where the requests are being placed and we have an event loop listening to these requests in the event queue. What happens next?
-                            The listener(the event loop) processes the request and if it is able to process the request without needing any blocking IO operations, then the event loop would itself process the request and sends the response back to the client by itself.
-                            If the current request uses blocking IO operations, the event loop sees whether there are threads available in the thread pool, picks up one thread from the thread pool and assigns the particular request to the picked thread. That thread does the blocking IO operations and sends the response back to the event loop and once the response gets to the event loop, the event loop sends the response back to the client.
+                            Angular vs React vs Vue
+                            Here we’ll cover various aspects of Angular, Vue, and React to see how they suit your needs. This post is not just a guide on Angular vs React vs Vue but aims to provide a structure to help judge front-end JavaScript frameworks in general. In case a new framework arrives next year, you will know exactly what parameters to look at!
 
-                            How is NodeJS better than traditional multithreaded request response model?
-                            With traditional multithreaded request/response model, every client gets a different thread where as with NodeJS, the simpler request are all handled directly by the EventLoop. This is an optimization of thread pool resources and there is no overhead of creating the threads for every client request.</p>
+                            * In this post, we assume that you have basic knowledge of JavaScript and have used JavaScript frameworks as well.
+
+                            Let’s get started:
+
+                            Table of contents:
+                            Part 1: A brief history
+                            
+                            Part 5: Ready-to-use libraries
+                            Who wins?
+                            TL;DR: Are you looking for direct, head-to-head comparisons between Angular vs React, Angular vs Vue, and React vs Vue? Check out these short summaries here:
+
+                            Angular vs React
+                            If the choice you’re making is based on Angular vs React alone, then you’ll simply need to consider the pros and cons discussed for those libraries in this post. But overall, keep in mind that both libraries can be used for mobile and web apps, while Angular is generally better for more complex apps that are enterprise-ready.
+
+                            React often requires extra modules and components, which keeps the core library small, but means there’s extra work involved when incorporating outside tools. Angular, on the other hand, is more of a full-fledged solution that doesn’t require extras like React often does, though it does have a steeper learning curve for its core compared to React.
+
+                            React is more suitable for intermediate to advanced JavaScript developers who are familiar with concepts from ES6 and up, while Angular favors those same developers who are also familiar with TypeScript.
+
+                            </p>
                     </div>
                 </div>
 

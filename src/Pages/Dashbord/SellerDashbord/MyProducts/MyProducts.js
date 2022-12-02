@@ -7,6 +7,7 @@ const MyProducts = () => {
     const { userInfo } = useContext(AuthContext);
     const role = userInfo?.userRole;
 
+    const [ doFetch, setDoFetch] = useState(false);
 
 
     useEffect(() => {
@@ -15,8 +16,9 @@ const MyProducts = () => {
             .then(data => {
                 // console.log(data, "aiche");
                 setProducts(data)
+                setDoFetch(false)
             })
-    }, [userInfo?.email])
+    }, [doFetch])
 
     const handleAdvertise = id => {
 
@@ -34,14 +36,13 @@ const MyProducts = () => {
                     })
                         .then(res => res.json())
                         .then(data => { 
-                            console.log(data);
                             if(data.acknowledged){
                                 toast('Advertise item successfully')
+                                setDoFetch(true)
                             }
                         })
                         .catch(er => console.error(er));
         
-        console.log("click" ,id);
     }
 
     if (role === "Seller") {

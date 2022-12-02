@@ -44,7 +44,8 @@ const Login = () => {
                 const socialLoginUser = {
                     name: result?.user?.displayName,
                     email: result?.user?.email,
-                    userRole: "Buyer"
+                    userRole: "Buyer",
+                    isVerified: false
                 }
 
                 fetch(`http://localhost:5000/users/${result?.user?.email}`, {
@@ -56,7 +57,6 @@ const Login = () => {
                         })
                             .then(res => res.json())
                             .then(data => {
-                                console.log(data, "S usr update")
                                 navigate('/')
                                 
                             })

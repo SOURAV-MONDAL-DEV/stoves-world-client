@@ -10,10 +10,11 @@ import CategoriesCard from './CategoriesCard';
 
 const CategoriesHome = () => {
 
+    const { doFetch, setDoFetch} = useContext(AuthContext);
+
     const [Categories, setCategories] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState([]);
     const [categoryProducts, setCategoryProducts] = useState([]);
-
 
 
     useEffect(() => {
