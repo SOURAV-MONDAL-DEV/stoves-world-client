@@ -11,15 +11,14 @@ const Banner = () => {
 
     return (
 
-
-        <div>
-            <div className='mx-20 bg-red-500'>
+      
+            <div className= ' grid grid-cols-2 mt-20 mx-5 md:mx-10 lg:mx-20 p-5 md:p-10 lg:p-20 rounded-lg bg-gradient-to-r from-cyan-500 to-lime-500'>
                 <div>
-                    <h1> banner text</h1>
+                    <h1 className='text-4xl font-bold text-yellow-500'>Find Your Best Choose </h1>
+                    <h1 className='text-xl'> Over 1000+ stoves in your budget</h1>
                 </div>
-                <img src={stove0} alt='stove'></img>
+                <img className=' -mt-5 md:-mt-10 lg:-mt-20' src={stove0} alt='stove'></img>
             </div>
-        </div>
 
 
 

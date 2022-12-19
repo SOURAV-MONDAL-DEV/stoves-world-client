@@ -9,13 +9,13 @@ const Header = () => {
 
 
     const menuItems = <>
-        <li className='font-semibold  rounded-lg hover:bg-yellow-200 hover:rounded-lg text-teal-500'><Link className='hover:rounded-lg' to='/'>Home</Link></li>
-        <li className='font-semibold  rounded-lg hover:bg-yellow-200 hover:rounded-lg text-teal-500'><Link className='hover:rounded-lg' to='/products'>Product</Link></li>
-        <li className='font-semibold  rounded-lg hover:bg-yellow-200 hover:rounded-lg text-teal-500'><Link className='hover:rounded-lg' to='/blog'>Blog</Link></li>
+        <li className='font-semibold text-xl rounded-lg hover:bg-lime-200 hover:rounded-lg text-red-500'><Link className='hover:rounded-lg' to='/'>Home</Link></li>
+        <li className='font-semibold text-xl rounded-lg hover:bg-lime-200 hover:rounded-lg text-red-500'><Link className='hover:rounded-lg' to='/products'>Product</Link></li>
+        <li className='font-semibold text-xl rounded-lg hover:bg-lime-200 hover:rounded-lg text-red-500'><Link className='hover:rounded-lg' to='/blog'>Blog</Link></li>
         {
             userInfo?.userRole === "Admin" ?
             <>
-                <li className='font-semibold  rounded-lg hover:bg-yellow-200 hover:rounded-lg text-teal-500'><Link className='hover:rounded-lg' to='/dashbord/allSellers'>DashBord</Link></li>
+                <li className='font-semibold text-xl rounded-lg hover:bg-lime-200 hover:rounded-lg text-red-500'><Link className='hover:rounded-lg' to='/dashbord/allSellers'>DashBord</Link></li>
             </>
             :
             <></>
@@ -23,7 +23,7 @@ const Header = () => {
         {
             userInfo?.userRole === "Seller" ?
             <>
-                <li className='font-semibold  rounded-lg hover:bg-yellow-200 hover:rounded-lg text-teal-500'><Link className='hover:rounded-lg' to='/dashbord/addProduct'>DashBord</Link></li>
+                <li className='font-semibold text-xl rounded-lg hover:bg-lime-200 hover:rounded-lg text-red-500'><Link className='hover:rounded-lg' to='/dashbord/addProduct'>DashBord</Link></li>
             </>
             :
             <></>
@@ -31,7 +31,7 @@ const Header = () => {
         {
             userInfo?.userRole === "Buyer" ?
             <>
-                <li className='font-semibold  rounded-lg hover:bg-yellow-200 hover:rounded-lg text-teal-500'><Link className='hover:rounded-lg' to='/dashbord/myOrders'>DashBord</Link></li>
+                <li className='font-semibold text-xl rounded-lg hover:bg-lime-200 hover:rounded-lg text-red-500'><Link className='hover:rounded-lg' to='/dashbord/myOrders'>DashBord</Link></li>
             </>
             :
             <></>
@@ -51,7 +51,7 @@ const Header = () => {
 
 
     return (
-        <div className="navbar py-10 bg-base-100">
+        <div className="navbar py-2  w-full bg-opacity-30 sticky top-0 z-10 shadow  backdrop-filter backdrop-blur-lg ">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
