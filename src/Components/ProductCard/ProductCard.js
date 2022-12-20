@@ -22,10 +22,6 @@ const ProductCard = ({ products }) => {
     // }, [user?.uid])
 
 
- 
-
-
-
     return (
         <div className="card w-96 bg-base-100 shadow-xl mx-auto">
             <figure><img src={photoUrl} alt="Stove" /></figure>
@@ -35,8 +31,6 @@ const ProductCard = ({ products }) => {
                 <p className='font-semibold'>Resale Price : <span className=''>{resalePrice}</span></p>
                 <p className='font-semibold'>Uses Time : <span className=''>{usedYear} </span> years</p>
                 <p className='font-semibold'>Product condition : <span className=''>{condition} </span></p>
-
-
                 <div className='flex '>
                     <div>
                         <p className='font-semibold pr-2'>Seller : {sellerName}</p>
@@ -48,7 +42,6 @@ const ProductCard = ({ products }) => {
                     </div>
 
                 </div>
-
                 <p className='font-semibold'>Seller phone : <span className=''>{phone}</span></p>
                 <p className='font-semibold'>Seller email : <span className=''>{email}</span></p>
                 <p className='font-semibold'>Location : <span className=''>{location}</span></p>

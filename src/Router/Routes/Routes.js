@@ -13,6 +13,7 @@ import Products from "../../Pages/Products/Products";
 import SignUp from "../../Pages/SignUp/SignUp";
 import NotFound from "../../Pages/NotFound/NotFound";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import ProductDetails from "../../Pages/ProductDetails/ProductDetails";
 
 
 const router = createBrowserRouter([
@@ -39,7 +40,11 @@ const router = createBrowserRouter([
       {
         path: '/signup',
         element: <SignUp></SignUp>
-      }
+      },
+      {
+        path: '/productDetails',
+        element: <ProductDetails></ProductDetails>
+      },
 
     ]
   },
