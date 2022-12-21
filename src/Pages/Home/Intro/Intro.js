@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ProductCard from '../../../Components/ProductCard/ProductCard';
+import ProductShort from '../../../Components/ProductShort/ProductShort';
 
 
 
@@ -20,14 +21,14 @@ const Intro = () => {
     if (products?.length) {
         return (
             <div >
-                <h2 className='text-center text-xl font-bold'>Advertisement :</h2>
-                <div className=' lg:mx-20 grid grid-cols-1 md:grid-cols-2 gap-10 mx-auto my-10' >
+                <h2 className='text-center text-xl font-bold text-yellow-500'>Advertisement :</h2>
+                <div className=' lg:mx-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mx-auto my-10' >
                     {
-                        products.map(product => <ProductCard
+                        products.map(product => <ProductShort
                             key={product._id}
                             products={product}
 
-                        ></ProductCard>)
+                        ></ProductShort>)
                     }
                 </div>
 

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AurhProvider/AuthProvider';
 
 const BookingModal = ({ bookProduct }) => {
-    const { productName, _id, isVarified, picture, email, phone, resalePrice, originalPrice, condition, sellerName, usedYear, location, postingDate } = bookProduct;
+    const { productName, _id, isVarified, photoUrl, email, phone, resalePrice, originalPrice, condition, sellerName, usedYear, location, postingDate } = bookProduct;
     const { userInfo, isLoading, doFetch, setDoFetch } = useContext(AuthContext);
     const navigate = useNavigate();
 
@@ -18,10 +18,12 @@ const BookingModal = ({ bookProduct }) => {
         const order = {
             productId: _id,
             productName,
-            picture,
+            photoUrl,
             resalePrice,
             originalPrice,
+            postingDate,
             condition: condition,
+            usedYear,
             sellerName,
             sellerLocation: location,
             sellerEmail: email,

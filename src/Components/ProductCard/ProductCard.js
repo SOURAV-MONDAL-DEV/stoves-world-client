@@ -31,7 +31,7 @@ const ProductCard = ({ products }) => {
             <div className="card-body">
                 <div className='flex justify-between'>
                     <div>
-                        <h2 className="card-title text-xl md:text-2xl font-bold text-orange-500">{productName}</h2>
+                        <h2 className="card-title text-xl md:text-2xl font-bold text-green-500">{productName}</h2>
                     </div>
                     <div>
                         <p className='text-lg md:text-2xl  text-red-600'>$ {products.resalePrice}</p>
@@ -77,7 +77,7 @@ const ProductCard = ({ products }) => {
                                     <div className="card-actions justify-end">
                                         <label
                                             htmlFor="booking-modal"
-                                            className="btn btn-sm bg-gradient-to-b from-yellow-500 via-yellow-400 to-yellow-500 border-none"
+                                            className="btn btn-sm bg-gradient-to-b from-yellow-500 via-yellow-400 to-orange-500 border-none"
                                             onClick={() => setBookProduct(products)}
                                         >Book Now</label>
                                     </div>

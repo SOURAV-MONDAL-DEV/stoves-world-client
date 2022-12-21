@@ -19,7 +19,7 @@ const Dashbord = () => {
                     <div className="drawer-side">
                         <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
                         <ul className="menu p-4 w-80 bg-base-100 text-base-content">
-                            <li><Link to="/dashbord/myOrders">My Orders</Link></li>
+                            <li className='text-green-500 font-bold'><Link to="/dashbord/myOrders">My Orders</Link></li>
                         </ul>
                     </div>
                 </div>
@@ -38,8 +38,8 @@ const Dashbord = () => {
                     <div className="drawer-side">
                         <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
                         <ul className="menu p-4 w-80 bg-base-100 text-base-content">
-                            <li><Link to="/dashbord/addProduct">Add Product</Link></li>
-                            <li><Link to="/dashbord/myProducts">My Products</Link></li>
+                            <li className='text-green-500 font-bold'><Link to="/dashbord/addProduct">Add Product</Link></li>
+                            <li className='text-green-500 font-bold'><Link to="/dashbord/myProducts">My Products</Link></li>
                         </ul>
 
                     </div>
@@ -59,8 +59,8 @@ const Dashbord = () => {
                     <div className="drawer-side">
                         <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
                         <ul className="menu p-4 w-80 bg-base-100 text-base-content">
-                            <li><Link to="/dashbord/allSellers">All Sellers</Link></li>
-                            <li><Link to="/dashbord/allBuyers">All Buyers</Link></li>
+                            <li className='text-green-500 font-bold'><Link to="/dashbord/allSellers">All Sellers</Link></li>
+                            <li className='text-green-500 font-bold'><Link to="/dashbord/allBuyers">All Buyers</Link></li>
                         </ul>
 
                     </div>
