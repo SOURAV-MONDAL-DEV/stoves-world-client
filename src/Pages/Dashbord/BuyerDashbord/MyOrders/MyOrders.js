@@ -22,17 +22,14 @@ const MyOrders = () => {
     if (role === "Buyer") {
         return (
             <div>
-                <p className='text-2xl font-bold text-green-500 my-10'>Yours all orders are here: </p>
+                <p className='text-2xl font-bold text-yellow-500 my-10'>Yours all orders are here: </p>
                 <div className=' lg:mx-20 grid grid-cols-1 lg:grid-cols-2 gap-10 mx-auto my-10'>
                     {
                         orderList.map(product =>
 
 
-
-
-
                             <div className="card w-80 md:w-96 bg-base-100 shadow-xl mx-auto ">
-                                <figure><img src={product?.photoUrl} alt="Stove" /></figure>
+                                {/* <figure><img src={product?.photoUrl} alt="Stove" /></figure> */}
                                 <div className="card-body">
                                     <div className='flex justify-between'>
                                         <div>
@@ -72,11 +69,6 @@ const MyOrders = () => {
                                 </div>
                                 
                             </div>
-
-
-
-
-
 
 
 
