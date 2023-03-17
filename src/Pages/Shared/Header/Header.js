@@ -9,13 +9,13 @@ const Header = () => {
 
 
     const menuItems = <>
-        <li className='font-semibold text-xl rounded-lg hover:bg-lime-200 hover:rounded-lg text-red-500'><Link className='hover:rounded-lg' to='/'>Home</Link></li>
-        <li className='font-semibold text-xl rounded-lg hover:bg-lime-200 hover:rounded-lg text-red-500'><Link className='hover:rounded-lg' to='/products'>Product</Link></li>
-        <li className='font-semibold text-xl rounded-lg hover:bg-lime-200 hover:rounded-lg text-red-500'><Link className='hover:rounded-lg' to='/blog'>Blog</Link></li>
+        <span className='px-4 py-1  text-xl md:text-2xl rounded-lg hover:bg-gradient-to-r from-fuchsia-500 to-pink-500 hover:text-white text-rose-500 font-teko'><Link className='hover:rounded-lg' to='/'>Home</Link></span>
+        <span className='px-4 py-1  text-xl md:text-2xl rounded-lg hover:bg-gradient-to-r from-fuchsia-500 to-pink-500 hover:text-white text-rose-500 font-teko'><Link className='hover:rounded-lg' to='/products'>Product</Link></span>
+        <span className='px-4 py-1  text-xl md:text-2xl rounded-lg hover:bg-gradient-to-r from-fuchsia-500 to-pink-500 hover:text-white text-rose-500 font-teko'><Link className='hover:rounded-lg' to='/blog'>Blog</Link></span>
         {
             userInfo?.userRole === "Admin" ?
             <>
-                <li className='font-semibold text-xl rounded-lg hover:bg-lime-200 hover:rounded-lg text-red-500'><Link className='hover:rounded-lg' to='/dashbord/allSellers'>My DashBord</Link></li>
+                <span className='px-4 py-1  text-xl md:text-2xl rounded-lg hover:bg-gradient-to-r from-fuchsia-500 to-pink-500 hover:text-white text-rose-500 font-teko'><Link className='hover:rounded-lg' to='/dashbord/allSellers'>My DashBord</Link></span>
             </>
             : 
             <></>
@@ -23,7 +23,7 @@ const Header = () => {
         {
             userInfo?.userRole === "Seller" ?
             <>
-                <li className='font-semibold text-xl rounded-lg hover:bg-lime-200 hover:rounded-lg text-red-500'><Link className='hover:rounded-lg' to='/dashbord/addProduct'>My DashBord</Link></li>
+                <span className='px-4 py-1  text-xl md:text-2xl rounded-lg hover:bg-gradient-to-r from-fuchsia-500 to-pink-500 hover:text-white text-rose-500 font-teko'><Link className='hover:rounded-lg' to='/dashbord/addProduct'>My DashBord</Link></span>
             </>
             :
             <></>
@@ -31,7 +31,7 @@ const Header = () => {
         {
             userInfo?.userRole === "Buyer" ?
             <>
-                <li className='font-semibold text-xl rounded-lg hover:bg-lime-200 hover:rounded-lg text-red-500'><Link className='hover:rounded-lg' to='/dashbord/myOrders'>My DashBord</Link></li>
+                <span className='px-4 py-1  text-xl md:text-2xl rounded-lg hover:bg-gradient-to-r from-fuchsia-500 to-pink-500 hover:text-white text-rose-500 font-teko'><Link className='hover:rounded-lg' to='/dashbord/myOrders'>My DashBord</Link></span>
             </>
             :
             <></>
