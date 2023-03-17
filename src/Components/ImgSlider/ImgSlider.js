@@ -8,17 +8,17 @@ function ImgSlider() {
   const colors = [
     {
       heading: "Wellcome To The Biggest Stove Market",
-      details: "Buy Sell or Promot your product over 1 Million People ",
+      details: "Reach More Than A Million People to Buy, Sell or Promot your product Online ",
       imgSrc: "jdskhfkh",
     },
     {
-      heading: "Buy stove",
-      details: "somthing",
+      heading: "Get upto 60% descount with free home delivery.",
+      details: "You can order your product and get cash on delivery with 20+ bank and credite card",
       imgSrc: "jdskhfkh",
     },
     {
-      heading: "Sell stove",
-      details: "somthing",
+      heading: "Sell your product Online with us.",
+      details: "Now you can Sell or Promot your product Online over 1 Million customer",
       imgSrc: "jdskhfkh",
     },
   ];
@@ -60,10 +60,10 @@ function ImgSlider() {
               className={`md:flex whitespace-normal mb-2 mt-10 mx-2 md:mx-10 lg:mx-20 p-5 md:p-8 lg:p-10 rounded-lg bg-gradient-to-r from-cyan-500 to-lime-500`}
             >
               <div class="basis-1/2 ">
-                <h1 className="text-2xl lg:text-4xl font-bold text-yellow-500">
+                <h1 className="text-2xl lg:text-4xl font-semibold text-yellow-200">
                   {colors[0].heading}
                 </h1>
-                <h1 className=" md:text-xl">{colors[0].details}</h1>
+                <h1 className=" md:text-xl text-white">{colors[0].details}</h1>
               </div>
               <div className="basis-1/2 ">
                 <img
@@ -80,10 +80,10 @@ function ImgSlider() {
               className={`md:flex whitespace-normal mb-2 mt-10 mx-2 md:mx-10 lg:mx-20 p-5 md:p-8 lg:p-10 rounded-lg bg-gradient-to-r from-fuchsia-400 to-rose-400`}
             >
               <div class="basis-1/2 ">
-                <h1 className="text-2xl lg:text-4xl font-bold text-yellow-500">
-                  {colors[0].heading}
+                <h1 className="text-2xl lg:text-4xl font-semibold text-yellow-200">
+                  {colors[1].heading}
                 </h1>
-                <h1 className=" md:text-xl">{colors[0].details}</h1>
+                <h1 className=" md:text-xl text-white">{colors[1].details}</h1>
               </div>
               <div className="basis-1/2 ">
                 <img
@@ -100,10 +100,10 @@ function ImgSlider() {
               className={`md:flex whitespace-normal mb-2 mt-10 mx-2 md:mx-10 lg:mx-20 p-5 md:p-8 lg:p-10 rounded-lg bg-gradient-to-r from-yellow-300 to-lime-300`}
             >
               <div class="basis-1/2 ">
-                <h1 className="text-2xl lg:text-4xl font-bold text-yellow-500">
+                <h1 className="text-2xl lg:text-4xl font-semibold text-red-500">
                   {colors[0].heading}
                 </h1>
-                <h1 className=" md:text-xl">{colors[0].details}</h1>
+                <h1 className=" md:text-xl text-white">{colors[0].details}</h1>
               </div>
               <div className="basis-1/2 ">
                 <img
