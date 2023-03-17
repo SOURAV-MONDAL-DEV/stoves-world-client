@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AurhProvider/AuthProvider';
+import { MdLogout } from "react-icons/md";
 
 const Header = () => {
 
@@ -77,14 +78,14 @@ const Header = () => {
                     <>
                         <img src={user?.photoURL} className='w-1/12 rounded-full md:mx-3' alt=''></img> 
                         <span className='mx-1 font-semibold text-sm md:text-lg'>{user?.displayName || userInfo?.name}</span>
-                        <button onClick={logOut} className="btn btn-outline btn-xs rounded-md p-1 text-xs text-blue-800 mx-3" > Log out</button>
+                        <button onClick={logOut} className="text-sm md:text-base underline text-cyan-600 px-3" ><MdLogout className='text-xl'></MdLogout></button>
                     </>
                     :
                     <>
                         <p>
-                        <Link to='/login'><button className=" text-sm md:text-base underline text-cyan-600 p-1">Login </button></Link>
+                        <Link to='/login'><button className=" text-sm md:text-base underline text-cyan-600 p-1 hover:font-semibold">Login </button></Link>
                         <Link ><button className=" text-sm md:text-base text-cyan-600"> / </button></Link>
-                        <Link to='/signup'><button className=" text-sm md:text-base underline text-cyan-600 p-1"> Sign Up</button></Link>
+                        <Link to='/signup'><button className=" text-sm md:text-base underline text-cyan-600 p-1 hover:font-semibold hover:p-[3px]"> Sign Up</button></Link>
                         </p>
                     </>
                 }
