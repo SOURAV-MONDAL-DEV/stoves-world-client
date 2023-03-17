@@ -2,7 +2,8 @@ import React from "react";
 import Banner from "../../Pages/Home/Banner/Banner";
 import "./ImgSlider.css";
 import stove0 from "../../img/stove0.png";
-import stove2 from "../../img/logo.png";
+import stove1 from "../../img/stove1.png";
+import stove2 from "../../img/stove2.png";
 
 function ImgSlider() {
   const colors = [
@@ -57,9 +58,9 @@ function ImgSlider() {
         >
           <div className="slide" key={0}>
             <div
-              className={`md:flex whitespace-normal mb-2 mt-10 mx-2 md:mx-10 lg:mx-20 p-5 md:p-8 lg:p-10 rounded-lg bg-gradient-to-r from-cyan-500 to-lime-500`}
+              className={`md:flex whitespace-normal mb-2 mt-10 mx-2 md:mx-10 lg:mx-20  rounded-lg bg-gradient-to-r from-cyan-500 to-lime-500`}
             >
-              <div class="basis-1/2 ">
+              <div class="basis-1/2 p-5 md:p-8 lg:p-10 ">
                 <h1 className="text-2xl lg:text-4xl font-semibold text-yellow-200">
                   {colors[0].heading}
                 </h1>
@@ -67,7 +68,7 @@ function ImgSlider() {
               </div>
               <div className="basis-1/2 ">
                 <img
-                  className=" "
+                  className=" py-5"
                   src={stove0}
                   alt="stove"
                 ></img>
@@ -87,8 +88,8 @@ function ImgSlider() {
               </div>
               <div className="basis-1/2 ">
                 <img
-                  className=" "
-                  src={stove0}
+                  className="mx-15 "
+                  src={stove1}
                   alt="stove"
                 ></img>
               </div>
@@ -101,14 +102,14 @@ function ImgSlider() {
             >
               <div class="basis-1/2 ">
                 <h1 className="text-2xl lg:text-4xl font-semibold text-red-500">
-                  {colors[0].heading}
+                  {colors[2].heading}
                 </h1>
                 <h1 className=" md:text-xl text-white">{colors[0].details}</h1>
               </div>
               <div className="basis-1/2 ">
                 <img
                   className=" "
-                  src={stove0}
+                  src={stove2}
                   alt="stove"
                 ></img>
               </div>
