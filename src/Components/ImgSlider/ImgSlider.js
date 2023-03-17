@@ -9,22 +9,16 @@ function ImgSlider() {
     {
       heading: "Wellcome To The Biggest Stove Market",
       details: "Buy Sell or Promot your product over 1 Million People ",
-      colorA: "rose-500",
-      colorB: "pink-500",
       imgSrc: "jdskhfkh",
     },
     {
       heading: "Buy stove",
       details: "somthing",
-      colorA: "green-500",
-      colorB: "pink-500",
       imgSrc: "jdskhfkh",
     },
     {
       heading: "Sell stove",
       details: "somthing",
-      colorA: "rose-500",
-      colorB: "cyan-500",
       imgSrc: "jdskhfkh",
     },
   ];
