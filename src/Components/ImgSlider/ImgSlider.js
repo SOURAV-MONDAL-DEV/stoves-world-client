@@ -8,7 +8,7 @@ import stove2 from "../../img/stove2.png";
 function ImgSlider() {
   const colors = [
     {
-      heading: "Wellcome To The Biggest Stove Market",
+      heading: "Wellcome To The Biggest Kitchenware Market",
       details: "Reach More Than A Million People to Buy, Sell or Promot your product Online ",
       imgSrc: "jdskhfkh",
     },
@@ -18,12 +18,12 @@ function ImgSlider() {
       imgSrc: "jdskhfkh",
     },
     {
-      heading: "Sell your product Online with us.",
+      heading: "Sell your product with us and reach world wide.",
       details: "Now you can Sell or Promot your product Online over 1 Million customer",
       imgSrc: "jdskhfkh",
     },
   ];
-  const delay = 2500;
+  const delay = 3500;
 
   function Slideshow() {
     const [index, setIndex] = React.useState(0);
@@ -68,7 +68,7 @@ function ImgSlider() {
               </div>
               <div className="basis-1/2 ">
                 <img
-                  className=" py-5"
+                  className=" px-8 md:px-0 md:py-5"
                   src={stove0}
                   alt="stove"
                 ></img>

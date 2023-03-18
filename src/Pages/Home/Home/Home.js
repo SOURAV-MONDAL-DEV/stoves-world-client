@@ -10,8 +10,8 @@ const Home = () => {
             <div>
               <ImgSlider></ImgSlider>  
             </div>
-            <Intro></Intro>
             <CategoriesHome></CategoriesHome>
+            <Intro></Intro>
         </div>
     );
 };
