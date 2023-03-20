@@ -10,13 +10,13 @@ const Header = () => {
 
 
     const menuItems = <>
-        <span className='px-4 py-1  text-xl md:text-2xl rounded-lg hover:bg-gradient-to-r from-fuchsia-500 to-pink-500 hover:text-white text-rose-500 font-teko'><Link className='hover:rounded-lg' to='/'>Home</Link></span>
-        <span className='px-4 py-1  text-xl md:text-2xl rounded-lg hover:bg-gradient-to-r from-fuchsia-500 to-pink-500 hover:text-white text-rose-500 font-teko'><Link className='hover:rounded-lg' to='/products'>Product</Link></span>
-        <span className='px-4 py-1  text-xl md:text-2xl rounded-lg hover:bg-gradient-to-r from-fuchsia-500 to-pink-500 hover:text-white text-rose-500 font-teko'><Link className='hover:rounded-lg' to='/blog'>Blog</Link></span>
+        <span className='px-4 py-1 m-1 text-xl md:text-2xl rounded-lg  hover:bg-gradient-to-r from-fuchsia-500 to-pink-500 hover:text-white text-rose-500 font-teko transition duration-00 ease-in-out'><Link className='hover:rounded-lg' to='/'>Home</Link></span>
+        <span className='px-4 py-1 m-1 text-xl md:text-2xl rounded-lg  hover:bg-gradient-to-r from-fuchsia-500 to-pink-500 hover:text-white text-rose-500 font-teko transition duration-00 ease-in-out'><Link className='hover:rounded-lg' to='/products'>Product</Link></span>
+        <span className='px-4 py-1 m-1 text-xl md:text-2xl rounded-lg  hover:bg-gradient-to-r from-fuchsia-500 to-pink-500 hover:text-white text-rose-500 font-teko transition duration-00 ease-in-out'><Link className='hover:rounded-lg' to='/blog'>Blog</Link></span>
         {
             userInfo?.userRole === "Admin" ?
             <>
-                <span className='px-4 py-1  text-xl md:text-2xl rounded-lg hover:bg-gradient-to-r from-fuchsia-500 to-pink-500 hover:text-white text-rose-500 font-teko'><Link className='hover:rounded-lg' to='/dashbord/allSellers'>My DashBord</Link></span>
+                <span className='px-4 py-1 m-1 text-xl md:text-2xl rounded-lg  hover:bg-gradient-to-r from-fuchsia-500 to-pink-500 hover:text-white text-rose-500 font-teko transition duration-00 ease-in-out'><Link className='hover:rounded-lg' to='/dashbord/allSellers'>My DashBord</Link></span>
             </>
             : 
             <></>
@@ -24,7 +24,7 @@ const Header = () => {
         {
             userInfo?.userRole === "Seller" ?
             <>
-                <span className='px-4 py-1  text-xl md:text-2xl rounded-lg hover:bg-gradient-to-r from-fuchsia-500 to-pink-500 hover:text-white text-rose-500 font-teko'><Link className='hover:rounded-lg' to='/dashbord/addProduct'>My DashBord</Link></span>
+                <span className='px-4 py-1 m-1 text-xl md:text-2xl rounded-lg  hover:bg-gradient-to-r from-fuchsia-500 to-pink-500 hover:text-white text-rose-500 font-teko transition duration-00 ease-in-out'><Link className='hover:rounded-lg' to='/dashbord/addProduct'>My DashBord</Link></span>
             </>
             :
             <></>
@@ -32,7 +32,7 @@ const Header = () => {
         {
             userInfo?.userRole === "Buyer" ?
             <>
-                <span className='px-4 py-1  text-xl md:text-2xl rounded-lg hover:bg-gradient-to-r from-fuchsia-500 to-pink-500 hover:text-white text-rose-500 font-teko'><Link className='hover:rounded-lg' to='/dashbord/myOrders'>My DashBord</Link></span>
+                <span className='px-4 py-1 m-1 text-xl md:text-2xl rounded-lg  hover:bg-gradient-to-r from-fuchsia-500 to-pink-500 hover:text-white text-rose-500 font-teko transition duration-00 ease-in-out'><Link className='hover:rounded-lg' to='/dashbord/myOrders'>My DashBord</Link></span>
             </>
             :
             <></>

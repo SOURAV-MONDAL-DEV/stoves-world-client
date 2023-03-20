@@ -48,7 +48,7 @@ const CategoriesHome = () => {
                 <h1 className='text-2xl font-teko tracking-wide'>Category :</h1>
             </div>
 
-            <div className=' lg:mx-20 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-5 mx-auto my-1'>
+            <div className=' lg:mx-20 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-5 mx-auto my-1 '>
                 {
                     Categories.map(category => <CategoriesCard
                         key={category._id}

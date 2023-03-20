@@ -4,12 +4,12 @@ const CategoriesCard = ({ category, handleLoadProduct }) => {
   const { CategoryName, image } = category;
   return (
     <div>
-      <div className="flex items-center whitespace-normal bg-base-100 border rounded border-base-100 hover:border-gray-700  shadow-[0px_0px_25px_-4px_rgb(0,0,0,0.1),_0px_0px_30px_-5px_rgb(0,0,0,0.1)]">
+      <div onClick={()=>handleLoadProduct(CategoryName)}  className="flex items-center  text-cyan-500 hover:text-base-100 whitespace-normal bg-base-100 border rounded border-base-100 hover:bg-cyan-500 hover:border-cyan-500 transition duration-900 ease-linear  shadow-[0px_0px_25px_-4px_rgb(0,0,0,0.1),_0px_0px_30px_-5px_rgb(0,0,0,0.1)]">
         <figure className=" basis-1/3">
-          <img className="h-10 w-auto" src={image} alt="category img" />
+          <img className="h-12 w-auto border rounded" src={image} alt="category img" />
         </figure>
         <div className=" basis-2/3 ">
-          <h2 className="md:text-xl text-center text-cyan-500 font-teko tracking-wide whitespace-normal">{CategoryName}</h2>
+          <h2 className="md:text-xl text-center font-teko h-100 tracking-wide whitespace-normal">{CategoryName}</h2>
         </div>
       </div>
 
