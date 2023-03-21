@@ -113,7 +113,7 @@ const Login = () => {
           <p className="text-red-600 text-sm">{error}</p>
           <div className="form-control mt-2">
             <input
-              className="border border-gray-500 p-2 rounded-md bg-cyan-400 text-white text-2xl font-teko tracking-wide hover:bg-green-400 transition duration-900 ease-linear"
+              className=" border-gray-500 p-2 rounded-md bg-cyan-400 text-white text-2xl font-teko tracking-wide hover:bg-green-400 transition duration-900 ease-linear"
               type="submit"
               value="Log in"
             />
@@ -121,7 +121,7 @@ const Login = () => {
         </form>
         <button
           onClick={handleGoogleSignIn}
-          className="mx-8 border border-gray-500 p-2 rounded-md bg-cyan-400 text-white text-2xl font-teko tracking-wide hover:bg-green-400 transition duration-900 ease-linear"
+          className="mx-8  border-gray-500 p-2 rounded-md bg-cyan-400 text-white text-2xl font-teko tracking-wide hover:bg-green-400 transition duration-900 ease-linear"
         >
           Sign In with Google
         </button>
