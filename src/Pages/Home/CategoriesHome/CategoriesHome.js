@@ -17,6 +17,8 @@ const CategoriesHome = () => {
     const [selectedCategory, setSelectedCategory] = useState([]);
     const [categoryProducts, setCategoryProducts] = useState([]);
 
+    console.log(Categories)
+
 
     useEffect(() => {
         fetch('https://stoves-world-server.vercel.app/categories')
@@ -64,7 +66,7 @@ const CategoriesHome = () => {
                 {
                     categoryProducts ?
                         <>
-                            <div className=' lg:mx-20 grid grid-cols-1 md:grid-cols-3 gap-10 mx-auto my-10'>
+                            <div className='md:mx-10 lg:mx-20 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 justify-center my-10'>
                                 {
                                     categoryProducts.map(products => <ProductShort
                                         key={products._id}

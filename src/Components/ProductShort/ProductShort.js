@@ -14,10 +14,10 @@ const ProductShort = ({ products }) => {
     }
 
     return (
-        <div  onClick={handleDetails}  className="card card-compact w-64 bg-base-100 shadow-xl mx-auto">
-            <figure><img src={products.photoUrl} alt="products" /></figure>
+        <div  onClick={handleDetails}  className="card card-compact w-40 md:w-56 rounded-sm  bg-base-100 shadow-xl mx-auto transition duration-300 ease-linear hover:-translate-y-1 hover:scale-110 ">
+            <figure><img className='h-32 w-auto' src={products.photoUrl} alt="products" /></figure>
             <div className="card-body">
-                <h2 className="card-title text-yellow-600">{products?.productName}</h2>
+                <h2 className="text-lg md:text-xl font-semibold text-green-600">{products?.productName.toUpperCase()}</h2>
                 <div className='flex justify-between'>
                     <div>
                         <p>{products?.postingDate}</p>
