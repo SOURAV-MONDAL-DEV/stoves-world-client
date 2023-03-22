@@ -43,14 +43,14 @@ const CategoriesHome = () => {
 
 
     return (
-        <div>
-            <div className='my-3 lg:mx-20 '>
+        <div className='mx-3 md:mx-10 lg:mx-12 '>
+            <div className='my-3 '>
                 {/* <h1 className='text-3xl font-bold text-center mb-5 text-green-500'>Category</h1>
                 <p className='text-xl font-semibold text-center text-yellow-500'>Which type of stove do you looking for????</p> */}
                 <h1 className='text-2xl font-teko tracking-wide'>Category :</h1>
             </div>
 
-            <div className=' lg:mx-20 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-5 mx-auto my-1 '>
+            <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-5  my-1 '>
                 {
                     Categories.map(category => <CategoriesCard
                         key={category._id}
@@ -66,7 +66,7 @@ const CategoriesHome = () => {
                 {
                     categoryProducts ?
                         <>
-                            <div className='md:mx-10 lg:mx-20 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 justify-center my-10'>
+                            <div className=' grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 justify-center my-10'>
                                 {
                                     categoryProducts.map(products => <ProductShort
                                         key={products._id}
